@@ -1,0 +1,81 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[ngerman]{babel} 
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts} 
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{titling}
+\usepackage{hyperref}
+\usepackage{csquotes} % for \textquote{}
+% REMINDER: USE IEEEeqnarray* FOR ALINGMENTS%
+\usepackage{IEEEtrantools}
+\usepackage{stix}
+
+\newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
+\newcommand*{\gedanke}{\textbf{-- }}
+\newcommand*{\gap}{\text{ }}
+\newcommand*{\setDef}{\gap|\gap}
+% Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
+\newcommand*{\R}{\mathbb R}
+\newcommand*{\grad}{\text{grad}}
+\newcommand*{\J}{\textbf{J}}
+
+% ¯\_(ツ)_/¯
+\usepackage{tikz}
+\newcommand{\shrug}[1][]{%
+\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+\draw \arm;
+\draw[xscale=-1] \arm;
+\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+\draw \headpart;
+\draw[xscale=-1] \headpart;
+\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+\draw[shift={(-0.3,0.8)}] \eye;
+\draw[shift={(0,0.85)}] \eye;
+% draw mouth
+\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+\end{tikzpicture}}
+
+
+\pagestyle{plain}
+\allowdisplaybreaks
+
+\setlength{\droptitle}{-14em}
+%\setlength{\jot}{12pt}
+
+\title{\scshape Mathe C Klausurzettel}
+\author{\scshape Henri Heyden\\\small stu240825}
+\date{}
+
+\begin{document}
+\maketitle
+\subsection*{Analysis}
+\subsubsection*{Integration}
+\text{\scshape Riemann Summe}\\
+Sei \(f : [a,b] \rightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
+Dann nennen wir \(R(f,x,\xi) := \sum_{i=1}^n (x_i - x_{i-1}) \cdot f(\xi_i)\) Riemann Summe. \\ \\
+\text{\scshape Integrierbarkeit}\\
+Wir nennen \(f\) integrierbar, wenn\\\(\exists R_0 \in \R \forall \epsilon > 0 \exists \delta > 0 \forall(x,\xi) \in \text{PS}(a,b,\delta): |R(f,x,\xi) - R_0| < \epsilon\) gilt. \\
+Das Integral ist eindeutig, schreibe \(\int_{a}^{b} f\) oder \(\int f\) hierfür. \\
+Wir schreiben auch \(\int f(x)\text dx := \int f\) \\
+Ist \(f\) integrierbar, dann kann man das Integral mit einer Beliebigen Folge an \((x_n,\xi_n)_n\) finden wessen Feinheit den Limes 0 hat, sodass die Riemann-Summe konvergiert. \\
+\(f\) ist genau dann integrierbar, wenn für alle 2 solcher Folgen ihre Differenz immer zu 0 konvergiert. \\ \\
+\text{\scshape Stetig und Kompakt} \\
+Eine Funktion \(f\): \\
+\dots ist stetig in \(x \in \text{dom}(f)\), wenn alle Funktionslimetes zu \(x\) gleich sind.\\
+\dots ist beschränkt, wenn ihre Domain eine obere und untere Schranke hat. \\
+\dots ist abgeschlossen, wenn das komplement ihrer Domain offen ist. \\
+\dots ist kompakt, wenn sie beschränkt und abgeschlossen ist. \\
+Ist eine Funktion kompakt stetig, dann ist sie gleichmäßig stetig und somit integrierbar. \\ \\
+\text{\scshape Abschätzungen} \\
+Für \(f \le g\) gilt: \(\int f \le \int g\). \\
+Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\) \\ \\
+\subsubsection*{Hauptsatz der Differenzialrechnung}
+Sei \(f,F: \Omega \rightarrow \R\) so, dass \(F' = f\) gilt. \\
+Dann gilt: \(\int f = F(\sup(f)) - F(\inf(f)) = F(b) - F(a)\) für \(\Omega = [a,b]\). \\
+
+\subsection*{Stochastik}
+\end{document}
