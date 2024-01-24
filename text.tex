@@ -53,7 +53,7 @@
 \begin{document}
 \maketitle
 \subsection*{Analysis}
-\subsubsection*{Integration}
+\subsubsection*{Integrierbarkeit}
 \text{\scshape Riemann Summe}\\
 Sei \(f : [a,b] \rightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
 Dann nennen wir \(R(f,x,\xi) := \sum_{i=1}^n (x_i - x_{i-1}) \cdot f(\xi_i)\) Riemann Summe. \\ \\
@@ -72,10 +72,34 @@ Eine Funktion \(f\): \\
 Ist eine Funktion kompakt stetig, dann ist sie gleichmäßig stetig und somit integrierbar. \\ \\
 \text{\scshape Abschätzungen} \\
 Für \(f \le g\) gilt: \(\int f \le \int g\). \\
-Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\) \\ \\
-\subsubsection*{Hauptsatz der Differenzialrechnung}
+Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\)
+\subsubsection*{Integrationstechniken}
+\text{\scshape Hauptsatz der Differenzialrechnung} \\
+Schreibe \([\phi]_u^v := \phi(v) - \phi(u)\) \\
 Sei \(f,F: \Omega \rightarrow \R\) so, dass \(F' = f\) gilt. \\
-Dann gilt: \(\int f = F(\sup(f)) - F(\inf(f)) = F(b) - F(a)\) für \(\Omega = [a,b]\). \\
+Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\).
+\pagebreak \\
+\text{\scshape Stammfunktionen} \\ \\
+\begin{tabular}{ c | c | c | c }
+    \hline
+    Domain & \(f(x)\) & \(F(x)\) & args \\
+    \hline
+    \(\R\) & \(c\) & \(cx\) & \(c \in \R\) \\
+    \(\R\) & \(\sum_{k=0}^{n}a_kx^k\) & \(\sum_{k=0}^{n}\frac{a_k}{k+1}x^{k+1}\) & \(a_0 \dots a_n \in \R\) \\
+    \(\R_{> 0}\) & \(x^{-1}\) & \(\ln(x)\) & \\
+    \(\R\) & \(b^x\) & \(\frac{b^x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
+    \(\R_{> 0}\) & \(\log_b(x)\) & \(\frac{x\ln(x) - x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
+    \(]-1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
+    \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & \\
+\end{tabular} \\ \\ \\
+\text{\scshape Partielle Integration} \\
+Für \(f,g : [a,b] \rightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
+\text{\scshape Substitution} \\
+Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
+sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
+\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\] \\
 
+\subsection*{Analytische Grundstrukturen}
+\subsection*{Differentation im Mehrdimensionalen}
 \subsection*{Stochastik}
 \end{document}
