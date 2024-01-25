@@ -19,8 +19,11 @@
 \newcommand*{\setDef}{\gap|\gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
 \newcommand*{\R}{\mathbb R}
+\newcommand*{\N}{\mathbb N}
+\newcommand*{\Z}{\mathbb Z}
 \newcommand*{\grad}{\text{grad}}
 \newcommand*{\J}{\textbf{J}}
+\newcommand*{\smi}{\text{-}}
 
 % ¯\_(ツ)_/¯
 \usepackage{tikz}
@@ -89,7 +92,7 @@ Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\
     \(\R_{> 0}\) & \(x^{-1}\) & \(\ln(x)\) & \\
     \(\R\) & \(b^x\) & \(\frac{b^x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
     \(\R_{> 0}\) & \(\log_b(x)\) & \(\frac{x\ln(x) - x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
-    \(]-1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
+    \(]\smi 1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
     \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & \\
 \end{tabular} \\ \\ \\
 \text{\scshape Partielle Integration} \\
@@ -97,9 +100,46 @@ Für \(f,g : [a,b] \rightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a
 \text{\scshape Substitution} \\
 Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
 sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
-\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\] \\
-
+\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\]
+\subsubsection*{Uneigentliche Integrale}
+\text{\scshape Integral über \(x^{-\alpha}\)} \\
+1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in ]0,1]\) divergiert das Integral. \\
+2) \(\forall \alpha \in ]0,1[: \int_{0}^{1}x^{-\alpha} \text d x = \frac{1}{1 - \alpha}\). \puffer Für \(\alpha \ge 1\) divergiert das Integral. \\ \\
+\text{\scshape Vergleichskriterium} \\
+Seien \(f,g: [a,b[ \rightarrow \R\) integrierbar über alle Teilintervalle und \(|f| \le g\). \\
+Konvergiert das uneigentliche Integral über \(g\), dann konvergiert das uneigentliche Integral über \(f\). \\ \\
+\text{\scshape Integralkriterium} \\
+Warnung nicht im Skript, trotzdem leichtes Argument. \\
+Sei \(p \in \Z\) und \(f : [p, \infty[ \rightarrow \R_{> 0}\) monoton fallend. \\
+Dann ist \(f\) integrierbar genau dann, wenn \(\sum_{n = p}^{\infty} f(n)\) konvergiert. \\
+Zur Motivation betrachte \(\sum_{n = p}^{\infty} f(n)\) als obere Schranke und Annäherung des Integrals mittels Riemann Summe mit gleichmäßiger Feinheit 1.
 \subsection*{Analytische Grundstrukturen}
+\subsubsection*{Metrische Räume}
+\text{\scshape Metrik} \\
+Eine Metrik ist eine Funktion \(d : M^2 \rightarrow \R_{\ge 0}\) mit folgenden Eigentschaften:\\
+1) \(d(x,y) = 0 \Longleftrightarrow x = y\) \puffer \puffer \gap \gap (positive Definitheit) \\
+2) \(d(x,y) = d(y,x)\) \puffer \puffer \puffer \puffer \gap \gap \gap (Symmetrie) \\
+3) \(d(x,y) \le d(x,z) + d(z,y)\) \puffer (Dreiecksungleichung) \\ \\
+\text{\scshape Eigenschaften der Metrik} \\
+Für Metrische Räume gelten alle analytischen Gesetze und Sätze aus MatheB nur mit jeder Metrik nicht nur der Betragsmetrik.
+Somit sind Begriffe wir Stetigkeit, Limes, Kompaktheit, Funktionslimes etc. äquivalent.
+\subsubsection*{Normierte Räume}
+\text{\scshape Norm} \\
+Sei \(V\) Vektorraum, dann ist \(||\cdot||\) Norm auf \(V\), wenn folgende Gesetze gelten:\\
+1) \(||v|| = 0 \Longleftrightarrow v = 0\) \\
+2) \(||\lambda|| = |\lambda| \cdot ||v||\) \\
+3) \(||u+v|| \le ||u|| + ||v||\) \\ \\
+\text{\scshape Beispielnormen über \(\R^n\)} \\
+Sei \(k \in \N_{> 0}\), dann ist \(||\cdot||_k : \R^n \rightarrow \R, v \mapsto \sqrt[k]{\sum_{i=1}^{n}|v_i|}\) Norm \\
+Die Funktion \(||\cdot||_\infty : \R^n \rightarrow \R, v \mapsto \max_{i \in [n]}|v_i|\) ist Norm \\ \\
+\text{\scshape Eigenschaften der Norm} \\
+Es gilt \(||-v|| = ||v||\) \\
+Außerdem ist \(V^2 \rightarrow \R_{\ge 0}, (u,v) \mapsto ||u-v||\) Metrik. Somit lassen sich analytische Grundbegriffe für Vektorräume komposieren und alle Eigentschaften der Metrischen Räume für jene Metrik anwenden. \\
+Normen sind stetig. Also \(||\cdot||\) ist eine stetige Funktion. \\ \\
+\text{\scshape Äquivalenz von Normen} \\
+Seien \((V, ||\cdot||)\) und \((V, ||\cdot||')\) normierte Räume. Wir nennen \(||\cdot||\) und \(||\cdot||'\) äquivalent, wenn folgendes gilt: \(\exists \alpha,\beta > 0: \forall v \in V: \alpha ||v|| \le ||v||' \le \beta||v||\) \\
+Umgebungen über äquivalente Normen sind äquivalent, genau wie Konvergenz mit den gleichen Limetes, Stetigkeiten und Kompaktheiten. \\
+Auf endlich dimensionalen Vektorräumen sind alle Normen äquivalent.
 \subsection*{Differentation im Mehrdimensionalen}
 \subsection*{Stochastik}
 \end{document}
