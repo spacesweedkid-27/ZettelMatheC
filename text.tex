@@ -141,5 +141,34 @@ Seien \((V, ||\cdot||)\) und \((V, ||\cdot||')\) normierte Räume. Wir nennen \(
 Umgebungen über äquivalente Normen sind äquivalent, genau wie Konvergenz mit den gleichen Limetes, Stetigkeiten und Kompaktheiten. \\
 Auf endlich dimensionalen Vektorräumen sind alle Normen äquivalent.
 \subsection*{Differentation im Mehrdimensionalen}
+Es seien \(V, W\) Vektorräume über \(\R\), \(\Omega \subseteq V\).
+\subsubsection*{Differenzierbarkeit}
+\text{\scshape Definiton der Differenzierbarkeit} \\
+Wir nennen \(f : \Omega \rightarrow W\) differenzierbar in \(v\), wenn \[\exists \phi \in \text L(V,W): \lim_{\tilde v \rightarrow v} \frac{||f(\tilde v) - (f(v) + \phi(\tilde v - v))||_W}{||\tilde v - v||_V} = 0_\R\]
+gilt. Dann nennen wir \(\phi\) Ableitung von \(f\) und schreiben \(D(f) := \phi\). Offenbar da \(\phi\) linear stetig ist, existiert eine Matrix für \(\phi\). Folgende Definiton ist äquivalent: \[\exists \phi \in \text L(V,W): \lim_{h \rightarrow 0_V} \frac{||f(v + h) - (f(v) + \phi(h))||_W}{||h||_V} = 0_\R\]
+Gilt \(V = W = \R\), dann ist die Definiton äquivalent zur Differenzierbarkeit im bekannten Sinne.
+\subsubsection*{Ableitungsregeln}
+Ist \(f\) differenzierbar, dann sind alle Komponentenfunktionen von \(f\) \((V,\R)\)-differenzierbar. \\ \\
+\text{\scshape Kombinationssätze} \\
+Für \(\lambda : \Omega \rightarrow \R\), \(f,g : \Omega \rightarrow V\) differenzierbar gelten folgende Regeln:\\
+1) \(D(f+g) = D(f) + D(g)\) \\
+2) \(D(\lambda f) = \lambda D(f)\) \\
+3) \(D\left(\frac{1}{\lambda}\right) = \frac{D(\lambda)}{\lambda^2}\) \\
+4) \(D\left(\frac{f}{\lambda}\right) = \frac{\lambda D(f) - fD(\lambda)}{\lambda^2}\) \\
+\subsubsection*{Partielle Ableitungen}
+Seien \(\Omega \subseteq \R^n, f : \Omega \rightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\).
+\text{\scshape Partielle Differenzierbarkeit} \\
+Wir nennen \(f_j\) partiell differenzierbar in \(v\) nach der i-ten Variable, wenn \(f_{j,v,i}\) in \(v_i\) differenzierbar ist.\\
+Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \pagebreak \\
+\text{\scshape Beispiel} \\
+Sei \(f: \R \times \R_{\ge 0} \rightarrow \R^4, (x,y) \mapsto \left(x+y, xy, x^2+3y-6, -2\sqrt{y}\right)\). \\
+Dann gilt:\\
+\(\partial_1f_2(x,y) = y\), \puffer
+\(\partial_1f_3(x,y) = 2x\), \puffer
+\(\partial_1f_4(x,y) = 0\), \\
+\(\partial_2f_1(x,y) = 1\), \puffer
+\(\partial_2f_3(x,y) = 3\) \\ \\
+\text{\scshape Gradient und Jacobi-Matrix} \\
+\dots todo \dots
 \subsection*{Stochastik}
 \end{document}
