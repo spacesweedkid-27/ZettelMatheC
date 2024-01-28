@@ -23,7 +23,11 @@
 \newcommand*{\Z}{\mathbb Z}
 \newcommand*{\grad}{\text{grad}}
 \newcommand*{\J}{\textbf{J}}
+\newcommand*{\He}{\textbf{H}}
 \newcommand*{\smi}{\text{-}}
+\newcommand*{\Co}{\mathcal C^1}
+\newcommand*{\Ct}{\mathcal C^2}
+\newcommand*{\todo}{\textit{\dots TODO \dots}}
 
 % ¯\_(ツ)_/¯
 \usepackage{tikz}
@@ -169,6 +173,34 @@ Dann gilt:\\
 \(\partial_2f_1(x,y) = 1\), \puffer
 \(\partial_2f_3(x,y) = 3\) \\ \\
 \text{\scshape Gradient und Jacobi-Matrix} \\
-\dots todo \dots
+Wir definieren den Gradienten von \(f_j\) als \(\grad_{f_j}(v) := (\partial_1f_j(v), \dots, \partial_nf_j(v))\). \\
+Des Weiteren definieren wir die Jacobi-Matrix von \(f\):\[\J_f(v) := \begin{bmatrix}
+    \partial_1f_1(v) & \hdots & \partial_nf_1(v) \\
+    \vdots & & \vdots \\
+    \partial_1f_d(v) & \hdots & \partial_nf_d(v)
+\end{bmatrix}\] Somit gilt: \[\J_f(v) = \begin{bmatrix}
+    \grad_{f_1}(v) \\
+    \vdots \\
+    \grad_{f_d}(v)
+\end{bmatrix}\]
+Ist \(f\) differenzierbar in \(v\), dann ist \(\J_f(v)\) Ableitung von \(f\), aber Achtung: Vollständige partielle Differenzierbarkeit impliziert NICHT totale Differenzierbarkeit! \\ \\
+\text{\scshape Totale Differenzierbarkeit aus Partieller Differenzierbarkeit} \\
+Ist \(f\) vollständig partiell differenzierbar und alle Ableitung sind stetig, dann ist \(f\) total differenzierbar. \\ \\
+\text{\scshape \(\Co\)-Funktionen und \(\Ct\)-Funktionen} \\
+Wir nennen \(f: \Omega \rightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar. \\
+\(f\) ist \(\Co\)-Funktion, wenn all ihre Komponentenfunktionen aus Kombinationen von Projektionen stetiger differenzierbaren eindimensionalen Funktionen bestehen. \\
+Wir nennen \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wenn sie eine \(\Co\)-Funktion ist, und \(\forall i \in [n]: \partial_if\) stetig partiell differenzierbar ist. \\
+Dies ist äquivalent dazu, dass \(\grad_f\) eine \(\Co\)-Funktion ist. \\Die partielle
+Ableitung von \(\partial_i f\) nach der \(j\)-ten Variable bezeichnen wir mit \(\partial_j\partial_if\). \\ \\
+\text{\scshape Hesse-Matrix} \\
+Sei \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse-Matrix von \(f\) als: \[\He_f := \begin{bmatrix}
+    \partial_1\partial_1f(v) & \hdots & \partial_1\partial_nf(v) \\
+    \vdots & & \vdots \\
+    \partial_n\partial_1f(v) & \hdots & \partial_n\partial_nf(v)
+\end{bmatrix}\] offenbar gilt: \(\He_f(v) = (\J_{\grad_f}(v))^{\top}\), denn die Spalten der Hesse - Matrix sind die
+Gradienten der Komponentenfunktionen von \(\grad_f\).\\
+Die Transposition ist auch nicht nötig, da die Hesse-Matrix symmetrisch ist.\\ Das heißt es gilt: \(\forall i,j\in[n]: \partial_i\partial_jf = \partial_j\partial_if\).
+\subsubsection*{Lokale Extremstellen}
+\todo
 \subsection*{Stochastik}
 \end{document}
