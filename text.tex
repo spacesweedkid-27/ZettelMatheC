@@ -28,6 +28,8 @@
 \newcommand*{\Co}{\mathcal C^1}
 \newcommand*{\Ct}{\mathcal C^2}
 \newcommand*{\todo}{\textit{\dots TODO \dots}}
+\newcommand*{\LMAX}{\text{\scshape Lmax}}
+\newcommand*{\LMIN}{\text{\scshape Lmin}}
 
 % ¯\_(ツ)_/¯
 \usepackage{tikz}
@@ -160,7 +162,7 @@ Für \(\lambda : \Omega \rightarrow \R\), \(f,g : \Omega \rightarrow V\) differe
 3) \(D\left(\frac{1}{\lambda}\right) = \frac{D(\lambda)}{\lambda^2}\) \\
 4) \(D\left(\frac{f}{\lambda}\right) = \frac{\lambda D(f) - fD(\lambda)}{\lambda^2}\) \\
 \subsubsection*{Partielle Ableitungen}
-Seien \(\Omega \subseteq \R^n, f : \Omega \rightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\).
+Seien \(\Omega \subseteq \R^n, f : \Omega \rightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\). \\ \\
 \text{\scshape Partielle Differenzierbarkeit} \\
 Wir nennen \(f_j\) partiell differenzierbar in \(v\) nach der i-ten Variable, wenn \(f_{j,v,i}\) in \(v_i\) differenzierbar ist.\\
 Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \pagebreak \\
@@ -197,10 +199,32 @@ Sei \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse
     \partial_1\partial_1f(v) & \hdots & \partial_1\partial_nf(v) \\
     \vdots & & \vdots \\
     \partial_n\partial_1f(v) & \hdots & \partial_n\partial_nf(v)
-\end{bmatrix}\] offenbar gilt: \(\He_f(v) = (\J_{\grad_f}(v))^{\top}\), denn die Spalten der Hesse - Matrix sind die
+\end{bmatrix}\] offenbar gilt: \(\He_f(v) = (\J_{\grad_f}(v))^{\top}\), denn die Spalten der Hesse-Matrix sind die
 Gradienten der Komponentenfunktionen von \(\grad_f\).\\
 Die Transposition ist auch nicht nötig, da die Hesse-Matrix symmetrisch ist.\\ Das heißt es gilt: \(\forall i,j\in[n]: \partial_i\partial_jf = \partial_j\partial_if\).
 \subsubsection*{Lokale Extremstellen}
-\todo
+\text{\scshape Definiton} \\
+Wir nennen \(v \in \Omega\) eine lokale Maximumstelle/Minimumstelle von \(f\), wenn gilt:\\
+\(\exists U \in \mathcal U(v): \forall u \in U: f(u) \le f(v)\) bzw. \(f(u) \ge f(v)\). \\
+Wir bezeichnen die Menge der lokalen Maximumstellen \(\LMAX(f)\) und die Menge der lokalen Minimumstellen \(\LMIN(f)\). Die Vereinigung beider Mengen ist \(\text{\scshape Lext}(f)\). \\ \\
+\text{\scshape Definitheit} \\
+Sei \(A\in\R^{n\times n}\) symmetrisch, dann nennen wir \(A\) \dots \\
+\dots positiv definit, wenn \(\forall k \in [n]: \det(A_k) > 0\) \\
+\dots negativ definit, wenn \(\forall k \in [n]: \det(A_k) < 0\) \\
+\dots indifinit, sonst. \\ \\
+\text{\scshape Definitheit der Hesse-Matrix} \\
+Definiere die Menge der kritischen Stellen von \(f\) als \(K(f) := \grad_f^\leftarrow(0_{\R^n})\). \\
+Es gilt für alle \(v \in K(f)\): \\
+1) \(\He_f(v)\) positiv definit \(\Longrightarrow v \in \LMIN(f)\) \\
+2) \(\He_f(v)\) negativ definit \(\Longrightarrow v \in \LMAX(f)\) \\
+3) \(\He_f(v)\) indifinit \(\Longrightarrow v \not\in \text{\scshape Lext}(f)\) \\ \\
+\text{\scshape Definitheit einer \(2\times 2\)-Matrix} \\
+Definiere \(A := \begin{bmatrix}
+    a & b \\ b & c
+\end{bmatrix}\) für \(a,b,c \in \R\). Dann gilt:\\
+1) \(A\) positiv definit \(\Longleftrightarrow a > 0 \wedge \det(A) > 0\). \\
+2) \(A\) negativ definit \(\Longleftrightarrow a < 0 \wedge \det(A) > 0\). \\
+3) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\) \\
 \subsection*{Stochastik}
+\todo
 \end{document}
