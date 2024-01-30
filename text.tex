@@ -30,6 +30,10 @@
 \newcommand*{\todo}{\textit{\dots TODO \dots}}
 \newcommand*{\LMAX}{\text{\scshape Lmax}}
 \newcommand*{\LMIN}{\text{\scshape Lmin}}
+\newcommand*{\QDp}{{:}\text{ }}
+\newcommand*{\E}{\mathcal E}
+\newcommand*{\Pro}{\mathbb P}
+\newcommand*{\Od}{\text{Od}}
 
 % ¯\_(ツ)_/¯
 \usepackage{tikz}
@@ -51,16 +55,14 @@
 
 \pagestyle{plain}
 \allowdisplaybreaks
-
-\setlength{\droptitle}{-14em}
-%\setlength{\jot}{12pt}
-
-\title{\scshape Mathe C Klausurzettel}
-\author{\scshape Henri Heyden\\\small stu240825}
-\date{}
+\setlength{\hoffset}{-1in}
+\setlength{\voffset}{-1in}
+\setlength{\textheight}{26cm} % DIN A4 ~ 30cm mir ist der obere rand egal
+\setlength{\textwidth}{18cm}  % DIN A4 = 21cm, 18 reichen mir.
 
 \begin{document}
-\maketitle
+\section*{Mathe C Klausurzettel}
+\textbf{Henri Heyden \gedanke stu240825}
 \subsection*{Analysis}
 \subsubsection*{Integrierbarkeit}
 \text{\scshape Riemann Summe}\\
@@ -86,8 +88,13 @@ Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\)
 \text{\scshape Hauptsatz der Differenzialrechnung} \\
 Schreibe \([\phi]_u^v := \phi(v) - \phi(u)\) \\
 Sei \(f,F: \Omega \rightarrow \R\) so, dass \(F' = f\) gilt. \\
-Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\).
-\pagebreak \\
+Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\). \\ \\
+\text{\scshape Partielle Integration} \\
+Für \(f,g : [a,b] \rightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
+\text{\scshape Substitution} \\
+Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
+sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
+\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\] \\ \\
 \text{\scshape Stammfunktionen} \\ \\
 \begin{tabular}{ c | c | c | c }
     \hline
@@ -100,16 +107,10 @@ Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\
     \(\R_{> 0}\) & \(\log_b(x)\) & \(\frac{x\ln(x) - x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
     \(]\smi 1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
     \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & \\
-\end{tabular} \\ \\ \\
-\text{\scshape Partielle Integration} \\
-Für \(f,g : [a,b] \rightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
-\text{\scshape Substitution} \\
-Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
-sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
-\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\]
+\end{tabular}
 \subsubsection*{Uneigentliche Integrale}
 \text{\scshape Integral über \(x^{-\alpha}\)} \\
-1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in ]0,1]\) divergiert das Integral. \\
+1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in {]0{,}1]}\) divergiert das Integral. \\
 2) \(\forall \alpha \in ]0,1[: \int_{0}^{1}x^{-\alpha} \text d x = \frac{1}{1 - \alpha}\). \puffer Für \(\alpha \ge 1\) divergiert das Integral. \\ \\
 \text{\scshape Vergleichskriterium} \\
 Seien \(f,g: [a,b[ \rightarrow \R\) integrierbar über alle Teilintervalle und \(|f| \le g\). \\
@@ -165,7 +166,7 @@ Für \(\lambda : \Omega \rightarrow \R\), \(f,g : \Omega \rightarrow V\) differe
 Seien \(\Omega \subseteq \R^n, f : \Omega \rightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\). \\ \\
 \text{\scshape Partielle Differenzierbarkeit} \\
 Wir nennen \(f_j\) partiell differenzierbar in \(v\) nach der i-ten Variable, wenn \(f_{j,v,i}\) in \(v_i\) differenzierbar ist.\\
-Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \pagebreak \\
+Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \\ \\
 \text{\scshape Beispiel} \\
 Sei \(f: \R \times \R_{\ge 0} \rightarrow \R^4, (x,y) \mapsto \left(x+y, xy, x^2+3y-6, -2\sqrt{y}\right)\). \\
 Dann gilt:\\
@@ -201,11 +202,11 @@ Sei \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse
     \partial_n\partial_1f(v) & \hdots & \partial_n\partial_nf(v)
 \end{bmatrix}\] offenbar gilt: \(\He_f(v) = (\J_{\grad_f}(v))^{\top}\), denn die Spalten der Hesse-Matrix sind die
 Gradienten der Komponentenfunktionen von \(\grad_f\).\\
-Die Transposition ist auch nicht nötig, da die Hesse-Matrix symmetrisch ist.\\ Das heißt es gilt: \(\forall i,j\in[n]: \partial_i\partial_jf = \partial_j\partial_if\).
+Die Transposition ist auch nicht nötig, da die Hesse-Matrix symmetrisch ist.\\ Das heißt es gilt: \(\forall i,j\in[n]{:}\text{ } \partial_i\partial_jf = \partial_j\partial_if\).
 \subsubsection*{Lokale Extremstellen}
 \text{\scshape Definiton} \\
 Wir nennen \(v \in \Omega\) eine lokale Maximumstelle/Minimumstelle von \(f\), wenn gilt:\\
-\(\exists U \in \mathcal U(v): \forall u \in U: f(u) \le f(v)\) bzw. \(f(u) \ge f(v)\). \\
+\(\exists U \in \mathcal U(v){:} \forall u \in U{:} f(u) \le f(v)\) bzw. \(f(u) \ge f(v)\). \\
 Wir bezeichnen die Menge der lokalen Maximumstellen \(\LMAX(f)\) und die Menge der lokalen Minimumstellen \(\LMIN(f)\). Die Vereinigung beider Mengen ist \(\text{\scshape Lext}(f)\). \\ \\
 \text{\scshape Definitheit} \\
 Sei \(A\in\R^{n\times n}\) symmetrisch, dann nennen wir \(A\) \dots \\
@@ -224,7 +225,51 @@ Definiere \(A := \begin{bmatrix}
 \end{bmatrix}\) für \(a,b,c \in \R\). Dann gilt:\\
 1) \(A\) positiv definit \(\Longleftrightarrow a > 0 \wedge \det(A) > 0\). \\
 2) \(A\) negativ definit \(\Longleftrightarrow a < 0 \wedge \det(A) > 0\). \\
-3) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\) \\
+3) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\)
 \subsection*{Stochastik}
+\subsubsection*{Mathematische Modellierung des Zufalls}
+\text{\scshape \(\sigma\)-Algebra, Eventraum} \\
+Sei \(\Omega \ne \emptyset\) Menge und \(\mathcal E \subseteq \mathcal P(\Omega)\). Für \(A \in \mathcal P(\Omega)\) definieren wir \(A^c := \Omega \setminus A\). \\
+Wir nennen \(\mathcal E\) eine \(\sigma\)-Algebra über \(\Omega\), wenn gilt:\\
+1) \(\Omega \in \mathcal E\) \\
+2) \(\forall A \in \mathcal E{:} A^c \in \mathcal E\) \\
+3) \(\forall (A_i)_i \in \mathcal S(\mathcal E){:} \bigcup_i A_i \in \mathcal E\)\\
+Wir nennen \((\Omega, \mathcal E)\) \textbf{Eventraum} und \(\Omega\) \textbf{Ergebnisraum}. \\
+Die Elemente von \(\mathcal E\) nennen wir \textbf{Event} und die Elemente von \(\Omega\) \textbf{Ergebnis}. \\ \\
+\text{\scshape Beispiele} \\
+Für \(\Omega\) ist \(\{\emptyset, \Omega\}\) \(\sigma\)-Algebra über \(\Omega\). Dann ist \((\Omega, \{\emptyset, \Omega\})\) Eventraum, genau wie \((\Omega, \mathcal P(\Omega))\) \\ \\
+\text{\scshape Wahrscheinlichkeitsmaß} \\
+Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathcal E}{\rightarrow}{[0,1]}\), dann nennen wir \(\mathbb P\) Wahrscheinlichkeitsmaß auf \((\Omega, \mathcal E)\), wenn gilt:\\
+1) \(\mathbb P(\Omega) = 1\) \\
+2) \(\forall(A_i)_i \in \mathcal S(\mathcal E), \bigcap_iA_i = \emptyset\QDp \mathbb P\left(\bigcup_iA_i\right) = \sum_{i}\mathbb P(A_i)\) \\
+Das Tripel \((\Omega, \mathcal E, \mathbb P)\) nennen wir Wahrscheinlichkeitsraum. \pagebreak \\
+\text{\scshape Grundlegende Eigenschaften der Wahrscheinlichkeit} \\
+1) \(\Pro(\emptyset) = 0\) \\
+2) \(\forall A,B \in \E, A{\cap} B = \emptyset\QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B)\) \\
+3) \(\forall A,B \in \E, A \subseteq B\QDp \Pro(B{\setminus} A) = \Pro(B) - \Pro(A)\) \\
+4) \(\forall A \in \E: \Pro(A^c) = 1-\Pro(A)\) \\
+5) \(\forall A,B \in \E \QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B) - \Pro(A{\cap}B)\) \\ \\
+\text{\scshape Uniformes W'Maß} \\
+Nun beachte, dass wenn \(\Pro(A)\) und \(\Pro(B)\) bekannt sind für \(A{\cap}B = \emptyset\), dass dann auch \(\Pro(A{\cup}B)\) berechnet werden kann. Somit lassen sich Wahrscheinlichkeitsmaße konstruieren, wenn \(\forall \omega \in \Omega: \Pro(\omega)\) bekannt ist. \\
+Eines solcher W'Maße ist das Uniforme mit \(\Pro(\omega) := \frac{1}{|\Omega|}\). Dann gilt: \(\Pro(A) = \frac{|A|}{|\Omega|}\). \\ \\
+\text{\scshape Konditionierung} \\
+Seien \(A,B \in \E\) so, dass \(\Pro(B) > 0\). Wir definieren die W'keit von A konditioniert auf B, oder W'keit von A gegeben B als \(\Pro(A{|}B) := \frac{\Pro(A{\cap}B)}{\Pro(B)}\). \\ \\
+\text{\scshape Bayes} \\
+Für \(A,B \in \E\) mit \(\Pro(A), \Pro(B) > 0\) gilt:
+\(\Pro(A{|}B) = \frac{\Pro(A)}{\Pro(B)} \cdot \Pro(B{|}A)\) \\ \\
+\text{\scshape Odds} \\
+Wir definieren für \(A,B \in \E\) mit \(\Pro(B) > 0\) die Odds von A konditioniert auf B, bzw die Odds von A als:
+\[\Od(A{|}B) := \begin{cases}
+    \frac{\Pro(A{|}B)}{\Pro(A^c{|}B)} = \frac{\Pro(A{\cap}B)}{\Pro(A^c{\cap}B)} & \Pro(A{|}B < 1) \\ +\infty & \Pro(A{|}B = 1)
+\end{cases}\]
+\[\Od(A) := \begin{cases}
+    \frac{\Pro(A)}{\Pro(A^c)} & \Pro(A < 1) \\ +\infty & \Pro(A = 1)
+\end{cases} \puffer\puffer\puffer\puffer\puffer\puffer\gap\gap\]
+Folgende Umrechnungsregeln gelten: \\
+\(o := \frac{p}{1-p}\) sind die odds für \(p\) Wahrscheinlichkeit. \\
+\(p := \frac{o}{o+1}\) ist die Wahrscheinlichkeit für \(o\) odds. \\ \\
+\text{\scshape Unabhängigkeit} \\
+Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt: \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
+\subsubsection*{Zufallsvariablen über diskreten Wahrscheinlichkeitsräumen}
 \todo
 \end{document}
