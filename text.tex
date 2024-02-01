@@ -7,7 +7,7 @@
 \subsection*{Analysis}
 \subsubsection*{Integrierbarkeit}
 \text{\scshape Riemann Summe}\\
-Sei \(f : [a,b] \rightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
+Sei \(f : [a,b] \longrightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
 Dann nennen wir \(R(f,x,\xi) := \sum_{i=1}^n (x_i - x_{i-1}) \cdot f(\xi_i)\) Riemann Summe. \\ \\
 \text{\scshape Integrierbarkeit}\\
 Wir nennen \(f\) integrierbar, wenn\\\(\exists R_0 \in \R \forall \epsilon > 0 \exists \delta > 0 \forall(x,\xi) \in \text{PS}(a,b,\delta): |R(f,x,\xi) - R_0| < \epsilon\) gilt. \\
@@ -22,16 +22,16 @@ Eine Funktion \(f\): \\
 \dots ist abgeschlossen, wenn das komplement ihrer Domain offen ist. \\
 \dots ist kompakt, wenn sie beschränkt und abgeschlossen ist. \\
 Ist eine Funktion kompakt stetig, dann ist sie gleichmäßig stetig und somit integrierbar. \\ \\
-\text{\scshape Abschätzungen} \\
+\textsc{Abschätzungen} \\
 Für \(f \le g\) gilt: \(\int f \le \int g\). \\
 Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\)
 \subsubsection*{Integrationstechniken}
 \text{\scshape Hauptsatz der Differenzialrechnung} \\
 Schreibe \([\phi]_u^v := \phi(v) - \phi(u)\) \\
-Sei \(f,F: \Omega \rightarrow \R\) so, dass \(F' = f\) gilt. \\
+Sei \(f,F: \Omega \longrightarrow \R\) so, dass \(F' = f\) gilt. \\
 Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\). \\ \\
 \text{\scshape Partielle Integration} \\
-Für \(f,g : [a,b] \rightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
+Für \(f,g : [a,b] \longrightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
 \text{\scshape Substitution} \\
 Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
 sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
@@ -54,17 +54,17 @@ sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subse
 1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in {]0{,}1]}\) divergiert das Integral. \\
 2) \(\forall \alpha \in ]0,1[: \int_{0}^{1}x^{-\alpha} \text d x = \frac{1}{1 - \alpha}\). \puffer Für \(\alpha \ge 1\) divergiert das Integral. \\ \\
 \text{\scshape Vergleichskriterium} \\
-Seien \(f,g: [a,b[ \rightarrow \R\) integrierbar über alle Teilintervalle und \(|f| \le g\). \\
+Seien \(f,g: [a,b[ \longrightarrow \R\) integrierbar über alle Teilintervalle und \(|f| \le g\). \\
 Konvergiert das uneigentliche Integral über \(g\), dann konvergiert das uneigentliche Integral über \(f\). \\ \\
 \text{\scshape Integralkriterium} \\
 Warnung nicht im Skript, trotzdem leichtes Argument. \\
-Sei \(p \in \Z\) und \(f : [p, \infty[ \rightarrow \R_{> 0}\) monoton fallend. \\
+Sei \(p \in \Z\) und \(f : [p, \infty[ \longrightarrow \R_{> 0}\) monoton fallend. \\
 Dann ist \(f\) integrierbar genau dann, wenn \(\sum_{n = p}^{\infty} f(n)\) konvergiert. \\
 Zur Motivation betrachte \(\sum_{n = p}^{\infty} f(n)\) als obere Schranke und Annäherung des Integrals mittels Riemann Summe mit gleichmäßiger Feinheit 1.
 \subsection*{Analytische Grundstrukturen}
 \subsubsection*{Metrische Räume}
 \text{\scshape Metrik} \\
-Eine Metrik ist eine Funktion \(d : M^2 \rightarrow \R_{\ge 0}\) mit folgenden Eigentschaften:\\
+Eine Metrik ist eine Funktion \(d : M^2 \longrightarrow \R_{\ge 0}\) mit folgenden Eigentschaften:\\
 1) \(d(x,y) = 0 \Longleftrightarrow x = y\) \puffer \puffer \gap \gap (positive Definitheit) \\
 2) \(d(x,y) = d(y,x)\) \puffer \puffer \puffer \puffer \gap \gap \gap (Symmetrie) \\
 3) \(d(x,y) \le d(x,z) + d(z,y)\) \puffer (Dreiecksungleichung) \\ \\
@@ -78,11 +78,11 @@ Sei \(V\) Vektorraum, dann ist \(||\cdot||\) Norm auf \(V\), wenn folgende Geset
 2) \(||\lambda|| = |\lambda| \cdot ||v||\) \\
 3) \(||u+v|| \le ||u|| + ||v||\) \pagebreak \\
 \text{\scshape Beispielnormen über \(\R^n\)} \\
-Sei \(k \in \N_{> 0}\), dann ist \(||\cdot||_k : \R^n \rightarrow \R, v \mapsto \sqrt[k]{\sum_{i=1}^{n}|v_i|}\) Norm \\
-Die Funktion \(||\cdot||_\infty : \R^n \rightarrow \R, v \mapsto \max_{i \in [n]}|v_i|\) ist Norm \\ \\
+Sei \(k \in \N_{> 0}\), dann ist \(||\cdot||_k : \R^n \longrightarrow \R, v \mapsto \sqrt[k]{\sum_{i=1}^{n}|v_i|}\) Norm \\
+Die Funktion \(||\cdot||_\infty : \R^n \longrightarrow \R, v \mapsto \max_{i \in [n]}|v_i|\) ist Norm \\ \\
 \text{\scshape Eigenschaften der Norm} \\
 Es gilt \(||-v|| = ||v||\) \\
-Außerdem ist \(V^2 \rightarrow \R_{\ge 0}, (u,v) \mapsto ||u-v||\) Metrik. Somit lassen sich analytische Grundbegriffe für Vektorräume komposieren und alle Eigentschaften der Metrischen Räume für jene Metrik anwenden. \\
+Außerdem ist \(V^2 \longrightarrow \R_{\ge 0}, (u,v) \mapsto ||u-v||\) Metrik. Somit lassen sich analytische Grundbegriffe für Vektorräume komposieren und alle Eigentschaften der Metrischen Räume für jene Metrik anwenden. \\
 Normen sind stetig. Also \(||\cdot||\) ist eine stetige Funktion. \\ \\
 \text{\scshape Äquivalenz von Normen} \\
 Seien \((V, ||\cdot||)\) und \((V, ||\cdot||')\) normierte Räume. Wir nennen \(||\cdot||\) und \(||\cdot||'\) äquivalent, wenn folgendes gilt: \(\exists \alpha,\beta > 0: \forall v \in V: \alpha ||v|| \le ||v||' \le \beta||v||\) \\
@@ -92,24 +92,24 @@ Auf endlich dimensionalen Vektorräumen sind alle Normen äquivalent.
 Es seien \(V, W\) Vektorräume über \(\R\), \(\Omega \subseteq V\).
 \subsubsection*{Differenzierbarkeit}
 \text{\scshape Definiton der Differenzierbarkeit} \\
-Wir nennen \(f : \Omega \rightarrow W\) differenzierbar in \(v\), wenn \[\exists \phi \in \text L(V,W): \lim_{\tilde v \rightarrow v} \frac{||f(\tilde v) - (f(v) + \phi(\tilde v - v))||_W}{||\tilde v - v||_V} = 0_\R\]
-gilt. Dann nennen wir \(\phi\) Ableitung von \(f\) und schreiben \(D(f) := \phi\). Offenbar da \(\phi\) linear stetig ist, existiert eine Matrix für \(\phi\). Folgende Definiton ist äquivalent: \[\exists \phi \in \text L(V,W): \lim_{h \rightarrow 0_V} \frac{||f(v + h) - (f(v) + \phi(h))||_W}{||h||_V} = 0_\R\]
+Wir nennen \(f : \Omega \longrightarrow W\) differenzierbar in \(v\), wenn \[\exists \phi \in \text L(V,W): \lim_{\tilde v \longrightarrow v} \frac{||f(\tilde v) - (f(v) + \phi(\tilde v - v))||_W}{||\tilde v - v||_V} = 0_\R\]
+gilt. Dann nennen wir \(\phi\) Ableitung von \(f\) und schreiben \(D(f) := \phi\). Offenbar da \(\phi\) linear stetig ist, existiert eine Matrix für \(\phi\). Folgende Definiton ist äquivalent: \[\exists \phi \in \text L(V,W): \lim_{h \longrightarrow 0_V} \frac{||f(v + h) - (f(v) + \phi(h))||_W}{||h||_V} = 0_\R\]
 Gilt \(V = W = \R\), dann ist die Definiton äquivalent zur Differenzierbarkeit im bekannten Sinne.
 \subsubsection*{Ableitungsregeln}
 Ist \(f\) differenzierbar, dann sind alle Komponentenfunktionen von \(f\) \((V,\R)\)-differenzierbar. \\ \\
 \text{\scshape Kombinationssätze} \\
-Für \(\lambda : \Omega \rightarrow \R\), \(f,g : \Omega \rightarrow V\) differenzierbar gelten folgende Regeln:\\
+Für \(\lambda : \Omega \longrightarrow \R\), \(f,g : \Omega \longrightarrow V\) differenzierbar gelten folgende Regeln:\\
 1) \(D(f+g) = D(f) + D(g)\) \\
 2) \(D(\lambda f) = \lambda D(f)\) \\
 3) \(D\left(\frac{1}{\lambda}\right) = \frac{D(\lambda)}{\lambda^2}\) \\
 4) \(D\left(\frac{f}{\lambda}\right) = \frac{\lambda D(f) - fD(\lambda)}{\lambda^2}\) \pagebreak
 \subsubsection*{Partielle Ableitungen}
-Seien \(\Omega \subseteq \R^n, f : \Omega \rightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\). \\ \\
+Seien \(\Omega \subseteq \R^n, f : \Omega \longrightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\). \\ \\
 \text{\scshape Partielle Differenzierbarkeit} \\
 Wir nennen \(f_j\) partiell differenzierbar in \(v\) nach der i-ten Variable, wenn \(f_{j,v,i}\) in \(v_i\) differenzierbar ist.\\
 Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \\ \\
 \text{\scshape Beispiel} \\
-Sei \(f: \R \times \R_{\ge 0} \rightarrow \R^4, (x,y) \mapsto \left(x+y, xy, x^2+3y-6, -2\sqrt{y}\right)\). \\
+Sei \(f: \R \times \R_{\ge 0} \longrightarrow \R^4, (x,y) \mapsto \left(x+y, xy, x^2+3y-6, -2\sqrt{y}\right)\). \\
 Dann gilt:\\
 \(\partial_1f_2(x,y) = y\), \puffer
 \(\partial_1f_3(x,y) = 2x\), \puffer
@@ -131,13 +131,13 @@ Ist \(f\) differenzierbar in \(v\), dann ist \(\J_f(v)\) Ableitung von \(f\), ab
 \text{\scshape Totale Differenzierbarkeit aus Partieller Differenzierbarkeit} \\
 Ist \(f\) vollständig partiell differenzierbar und alle Ableitung sind stetig, dann ist \(f\) total differenzierbar. \\ \\
 \text{\scshape \(\Co\)-Funktionen und \(\Ct\)-Funktionen} \\
-Wir nennen \(f: \Omega \rightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar. \\
+Wir nennen \(f: \Omega \longrightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar. \\
 \(f\) ist \(\Co\)-Funktion, wenn all ihre Komponentenfunktionen aus Kombinationen von Projektionen stetiger differenzierbaren eindimensionalen Funktionen bestehen. \\
-Wir nennen \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wenn sie eine \(\Co\)-Funktion ist, und \(\forall i \in [n]: \partial_if\) stetig partiell differenzierbar ist. \\
+Wir nennen \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wenn sie eine \(\Co\)-Funktion ist, und \(\forall i \in [n]: \partial_if\) stetig partiell differenzierbar ist. \\
 Dies ist äquivalent dazu, dass \(\grad_f\) eine \(\Co\)-Funktion ist. \\Die partielle
 Ableitung von \(\partial_i f\) nach der \(j\)-ten Variable bezeichnen wir mit \(\partial_j\partial_if\). \\ \\
 \text{\scshape Hesse-Matrix} \\
-Sei \(f: \Omega \rightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse-Matrix von \(f\) als: \[\He_f := \begin{bmatrix}
+Sei \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse-Matrix von \(f\) als: \[\He_f := \begin{bmatrix}
     \partial_1\partial_1f(v) & \hdots & \partial_1\partial_nf(v) \\
     \vdots & & \vdots \\
     \partial_n\partial_1f(v) & \hdots & \partial_n\partial_nf(v)
@@ -180,7 +180,7 @@ Die Elemente von \(\mathcal E\) nennen wir \textbf{Event} und die Elemente von \
 \text{\scshape Beispiele} \\
 Für \(\Omega\) ist \(\{\emptyset, \Omega\}\) \(\sigma\)-Algebra über \(\Omega\). Dann ist \((\Omega, \{\emptyset, \Omega\})\) Eventraum, genau wie \((\Omega, \mathcal P(\Omega))\) \\ \\
 \text{\scshape Wahrscheinlichkeitsmaß} \\
-Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathcal E}{\rightarrow}{[0,1]}\), dann nennen wir \(\mathbb P\) Wahrscheinlichkeitsmaß auf \((\Omega, \mathcal E)\), wenn gilt:\\
+Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathcal E}{\longrightarrow}{[0,1]}\), dann nennen wir \(\mathbb P\) Wahrscheinlichkeitsmaß auf \((\Omega, \mathcal E)\), wenn gilt:\\
 1) \(\mathbb P(\Omega) = 1\) \\
 2) \(\forall(A_i)_i \in \mathcal S(\mathcal E), \bigcap_iA_i = \emptyset\QDp \mathbb P\left(\bigcup_iA_i\right) = \sum_{i}\mathbb P(A_i)\) \\
 Das Tripel \((\Omega, \mathcal E, \mathbb P)\) nennen wir Wahrscheinlichkeitsraum. \pagebreak \\
@@ -210,22 +210,24 @@ Folgende Umrechnungsregeln gelten: \\
 \(o := \frac{p}{1-p}\) sind die odds für \(p\) Wahrscheinlichkeit. \\
 \(p := \frac{o}{o+1}\) ist die Wahrscheinlichkeit für \(o\) odds. \\ \\
 \text{\scshape Unabhängigkeit} \\
-Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt: \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
+Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt:\\ \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
 \subsubsection*{Zufallsvariablen über diskreten Wahrscheinlichkeitsräumen}
 \text{\scshape Zufallsvariablen} \\
 Sei \((\Omega, \pro(\Omega), \Pro)\) diskreter W'Raum. \\
-Wir nennen alle Funktionen \(X\QDp \Omega {\rightarrow} \R\) Zufallsvariablen. \\ \\
+Wir nennen alle Funktionen \(X\QDp \Omega {\longrightarrow} \R\) Zufallsvariablen. \\ \\
 \text{\scshape Events über Zufallsvariablen} \\
 Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZW elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen. \pagebreak \\
 \text{\scshape Gesetze der neuen Events} \\
-1) \(\Pro(\bot|\beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
-2) \(\Pro(\neg\phi|\beta) = 1 - \Pro(\phi|\beta)\) \\
-3) \(\Pro(\phi {\vee} \psi | \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
+1) \(\Pro(\bot \mid \beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
+2) \(\Pro(\neg\phi \mid \beta) = 1 - \Pro(\phi|\beta)\) \\
+3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
 \subsubsection*{Verteilungen über Zufallsvariablen}
-\text{\scshape Probability-Mass-Function (PMF)} \\
-Man sieht, dass \(\rho_X \QDp \mathcal P(\R) \rightarrow [0,1], U \mapsto \Pro(X \in U)\) ein W'maß für den Eventraum \(\R, \mathcal(\R)\) ergibt gegeben der ZW \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). Wir nennen \(\rho_X\) PMF von \(X\). \\ \\
+\text{\scshape Verteilung} \\
+Man sieht, dass die Funktion \(\mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X \in U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZW \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
 \text{\scshape Träger} \\
 Wir definieren den \textbf{Träger} von \(X\) als: \(\supp(X) := \{{u \in \R} \mid {\Pro(X=u) > 0}\}\). \\
 Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZW über diskreten W'räumen abzählbar. \\
-Somit schreibt man auch \(\Pro(X {\in} U) = \Pro(X {\in} {U \cap \supp(X)}) = \sum_{u \in U \cap \supp(X)}\Pro(X {=} u) =: \sum_{u \in U}\Pro(X {=} u)\).
+Somit schreibt man auch \(\Pro(X {\in} U) = \Pro(X {\in} {U \cap \supp(X)}) = \sum_{u \in U \cap \supp(X)}\Pro(X {=} u) =: \sum_{u \in U}\Pro(X {=} u)\). \\ \\
+\subsubsubsection{Probability Mass Function (PMF)}
+Wir nennen \(\rho_X \QDp \R \longrightarrow [0,1],\gap u \mapsto \Pro(X = u)\) die PMF von \(X\).
 \end{document}

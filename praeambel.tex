@@ -1,12 +1,10 @@
 \documentclass[a4paper, 12pt]{article}
 
 \usepackage[ngerman]{babel} 
-\usepackage{stix}
-\usepackage[T1]{fontenc}
-\usepackage{amsfonts} 
 \usepackage{setspace}
+\usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{bbm}
 \usepackage{mathrsfs}   % for \mathscr
 \usepackage{titling}
 \usepackage{hyperref}
@@ -14,15 +12,16 @@
 % REMINDER: USE IEEEeqnarray* FOR ALINGMENTS%
 \usepackage{IEEEtrantools}
 
+\usepackage{stix}
 
 \newcommand*{\puffer}{\text{ }\text{ }\text{ }\text{ }}
 \newcommand*{\gedanke}{\textbf{-- }}
 \newcommand*{\gap}{\text{ }}
 \newcommand*{\setDef}{\gap|\gap}
 % Hab länger gebraucht um zu realisieren, dass das ne gute Idee wäre
-\newcommand*{\R}{\mathbb R}
-\newcommand*{\N}{\mathbb N}
-\newcommand*{\Z}{\mathbb Z}
+\newcommand*{\R}{\mathbbm R}
+\newcommand*{\N}{\mathbbm N}
+\newcommand*{\Z}{\mathbbm Z}
 \newcommand*{\grad}{\text{grad}}
 \newcommand*{\J}{\textbf{J}}
 \newcommand*{\He}{\textbf{H}}
@@ -34,12 +33,13 @@
 \newcommand*{\LMIN}{\text{\scshape Lmin}}
 \newcommand*{\QDp}{{:}\text{ }}
 \newcommand*{\E}{\mathcal E}
-\newcommand*{\Pro}{\mathbb P}
+\newcommand*{\Pro}{\mathbbm P}
 \newcommand*{\pro}{\mathcal P}
 \newcommand*{\Od}{\text{Od}}
 \newcommand*{\supp}{\text{supp}}
 \newcommand*{\img}{\text{img}}
 \newcommand*{\dom}{\text{dom}}
+\newcommand{\subsubsubsection}[1]{\textsc{#1} \\} 
 
 % ¯\_(ツ)_/¯
 \usepackage{tikz}
