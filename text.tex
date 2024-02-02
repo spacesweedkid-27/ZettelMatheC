@@ -216,18 +216,75 @@ Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabh
 Sei \((\Omega, \pro(\Omega), \Pro)\) diskreter W'Raum. \\
 Wir nennen alle Funktionen \(X\QDp \Omega {\longrightarrow} \R\) Zufallsvariablen. \\ \\
 \text{\scshape Events über Zufallsvariablen} \\
-Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZW elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen. \pagebreak \\
+Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZV elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen. \pagebreak \\
 \text{\scshape Gesetze der neuen Events} \\
 1) \(\Pro(\bot \mid \beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
 2) \(\Pro(\neg\phi \mid \beta) = 1 - \Pro(\phi|\beta)\) \\
 3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
 \subsubsection*{Verteilungen über Zufallsvariablen}
 \text{\scshape Verteilung} \\
-Man sieht, dass die Funktion \(\mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X \in U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZW \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
+Man sieht, dass die Funktion \(\mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X \in U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZV \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
 \text{\scshape Träger} \\
 Wir definieren den \textbf{Träger} von \(X\) als: \(\supp(X) := \{{u \in \R} \mid {\Pro(X=u) > 0}\}\). \\
-Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZW über diskreten W'räumen abzählbar. \\
+Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZV über diskreten W'räumen abzählbar. \\
 Somit schreibt man auch \(\Pro(X {\in} U) = \Pro(X {\in} {U \cap \supp(X)}) = \sum_{u \in U \cap \supp(X)}\Pro(X {=} u) =: \sum_{u \in U}\Pro(X {=} u)\). \\ \\
-\subsubsubsection{Probability Mass Function (PMF)}
-Wir nennen \(\rho_X \QDp \R \longrightarrow [0,1],\gap u \mapsto \Pro(X = u)\) die PMF von \(X\).
+\subsubsubsection{Probability Mass Function (PMF)}{
+    Wir nennen \(\rho_X \QDp \R \longrightarrow [0,1],\gap u \mapsto \Pro(X = u)\) die PMF von \(X\).
+    }
+\subsubsubsection{Tupel und Familien von ZV}{
+    Wir definieren eine Familie von ZV als: \(I \subseteq \N, X := \text{\huge\(\times\)}_{i \in I}X_i\), dann ist \(X\) Familie über alle ZV \(X_i \in M_i \in \mathcal P(M)^I\) mit \(M\) Menge an ZV. Ein Tupel einer ZV ist ein Spezialfall dessen, und ZVar, dass\\
+    \(\exists n \in \N: I = [n]\) gilt. Wir schreiben dann \(X := (X_1 \cdot X_n)\) für Tupel und \((X_i)_{i\in I}\) für die Familie. \\
+    Wir definieren somit folgende Events: \(X \in U :\Longleftrightarrow \forall i \in I: X_i \in U_i\) und \(X = u :\Longleftrightarrow \forall i \in I: X_i = u_i\). Die Verteilung, der Träger und die PMF werden gleich definiert.
+}
+\subsubsubsection{Uniforme Verteilung}{
+Für eine Familie von ZV oder einer ZV \(X\) sagen wir, dass \(X\) uniform verteilt ist,\\
+wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PMF einer Uniformen Verteilung:\\
+\(\rho_{\Unif(M)}\QDp \R^I \longrightarrow [0,1], u \mapsto \begin{cases}
+    \frac{1}{|M|} & u \in M\\
+    0 & \text{sonst}
+\end{cases}\)
+}
+\subsubsubsection{Marginalisierung Beispiel}{
+    Sei \((X_1, X_2) \sim \Unif(\{(0,1), (0,2), (2,1)\})\). Dann gilt:\\
+    \(\Pro(X_1 = 0)\\ = \Pro((X_1 = 0) \wedge (X_2 = 1 \vee X_2 = 2))\\ = \Pro((X_1,X_2) = (0,1) \vee (X_1,X_2) = (0,2))\\ = \Pro((X_1,X_2) = (0,1)) + \Pro((X_1,X_2) = (0,2))\\ = \frac{2}{3}\)
+}
+\subsubsubsection{Bernoulliverteilung}{
+    Sei \(p \in [0,1]\) für eine ZV X sagen wir, dass sie Bernoulli-verteilt ist, wenn gilt:\\
+    \(\Pro(X {=} 1) = p\) und \(\Pro(X {=} 0) = 1{-}p\), dann ist die PMF: \[\rho_{\Ber(p)} \QDp \R \longrightarrow [0,1], u \mapsto \begin{cases}
+        p & u=1 \\
+        1-p & u=0\\
+        0 & \text{sonst}
+    \end{cases}\]
+}
+\subsubsubsection{Unabhängigkeit}{
+    Wir nennen eine endliche Familie von ZV \(X = (X_i)_{i\in I}\) unabhängig, wenn gilt:
+    \[\forall(U_i)_{i\in I} \in \mathcal P(\R)^I\QDp \Pro\left(\bigwedge_{i \in I}(X_i \in U_i)\right) = \prod_{i\in I}\Pro(X_i \in U_i)\]
+    Wir sagen \((X_i)_{i \in I} \sim \mathcal V\) i.d.d. für eine Verteilung \(V\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \\
+    Unabhängige ZV 
+}
+\subsubsubsection{Summe unabhängiger Bernoulli-ZV}{
+    Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., und definiere \(S := \sum_{i=1}^{n}X_i\), dann gilt für \(k \in [n]\):
+    \[\Pro(S {=} k) = \binom{n}{k}p^k(1-p)^{n-k}\]
+}
+\textsc{Binominalverteilung} \\
+    Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., dann nennen wir \(X\) binomialverteilt und schreiben:
+    \[(X_1, \dots, X_n) \sim \Ber(p) \text{ i.i.d.} \Longrightarrow \sum_{i=1}^{n}X_i \sim \Bin(n,p)\]
+\todo Möglicherweise HIV Beispiel einfügen für ein Krankheits-Beispiel.
+\subsubsection*{Erwartungswert und Varianz von ZV über diskreten W'räumen}
+\subsubsubsection{Erwartungswert}{
+    Sei \(X\) ein ZV. \(X\) hat einen Erwartungswert, genau dann, wenn \(\Ew := \sum_{u \in \R}u \cdot \Pro(X {=} u)\) definiert ist bzw. summierbar ist für \(|u|\) statt \(u\). Offenbar gilt: \(\Ew(X) = \sum_{\omega \in \Omega}X(\omega) \cdot \Pro(\omega)\).
+}
+\subsubsubsection{Erwartungswert von Verteilungen}{
+    Es gilt: \(\Ew(\Ber(p)) = p\) und \(\Ew(\Bin(n,p)) = n\cdot p\). Des Weiteren gilt: \(|\Ew(X)| \le \Ew(|X|)\)
+}
+\subsubsubsection{Law of the unconscious statistician (LOTUS)}{
+    Sei \(X\) ZV oder endliche Familie davon und sei \(f\QDp \supp(X) \longrightarrow \R\). Dann hat die ZV \(f \circ X\) einen EW genau dann, wenn \(\sum_{u \in R^I}|f(u)| \cdot \Pro(X = u) < +\infty\) gilt. \\
+    Des Weiteren lässt sich der EW von \(f \circ X\) so berechnen: \(\Ew(f \circ X) = \sum_{u \in R^I}f(u) \cdot \Pro(X = u)\).
+}
+\subsubsubsection{Linearität des EW}{
+    Für \(X\) ZV oder Familie davon mit EW und \(\lambda \in \R\) oder gleichlange Familie davon gilt: \(\Ew(\lambda \cdot X) = \lambda \cdot \Ew(X)\) es gilt auch: \(\Ew(X + \lambda) = \Ew(X) + \lambda\)
+}
+\subsubsubsection{Varianz}{
+    Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). \(X\) hat genau dann Varianz, wenn \(X\) EW hat. Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\)
+}
 \end{document}
