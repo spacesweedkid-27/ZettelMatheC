@@ -5,3 +5,4 @@ prämbel.tex
 **/**.log
 **/**.out
 **/**.synctex.gz
+.vscode
