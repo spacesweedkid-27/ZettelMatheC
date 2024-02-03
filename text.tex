@@ -223,7 +223,7 @@ Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u}
 3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
 \subsubsection*{Verteilungen über Zufallsvariablen}
 \text{\scshape Verteilung} \\
-Man sieht, dass die Funktion \(\mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X \in U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZV \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
+Man sieht, dass die Funktion \(\Pro_X\QDp \mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X {\in} U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZV \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
 \text{\scshape Träger} \\
 Wir definieren den \textbf{Träger} von \(X\) als: \(\supp(X) := \{{u \in \R} \mid {\Pro(X=u) > 0}\}\). \\
 Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZV über diskreten W'räumen abzählbar. \\
@@ -303,5 +303,36 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
 Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \subsubsubsection{Allgemeine ZV}{
     Wir nennen \(X\QDp \Omega \longrightarrow \R\) eine ZV, wenn gilt: \(\forall u \in \R: [X \le u] \in \E\)
+}
+\subsubsubsection{Borellmengen}{
+    Um sinnvolle Events für eine allgemeine ZV zu konstruieren, definieren wir eine \(\sigma\)-Algebra, die nicht die Potenzmenge von \(\R\) ist. Für \(\mathcal G := \{]{-}\infty, u[ \mid u \in \R\}\), was selbst schon eine gültige \(\sigma\)-Algebra ist, definieren wir \(\mathcal B := \bigcap_{\mathcal G \subseteq \E' \subseteq \mathcal P(\R) \wedge \E \text{ ist \(\sigma\)-Algebra über \(\R\)}}\E'\). \(\mathcal B\) ist \(\sigma\)-Algebra.\\
+    Folgendes sind Borellmengen: Intervalle, abzählbare Mengen, Offene Mengen, Vereinigungen abzählbar vieler Borellmengen, Schnitte abzählbar vieler Borellmengen, Komplemente von Borellmengen. \\
+    Außerdem ist das kartesische Produkt über Borellmengen wieder Borellmenge, somit übertragen sich auch noch äquivalente Definitionen und Regeln für Folgen von ZV, welche über Folgen von Borellmengen agieren.
+}
+\subsubsubsection{Komb'Satz für allgemeine ZV}{
+    Seien \(X,Y\) ZV, \(\lambda \in \R\), \(f\QDp D \longrightarrow \R\) stetig für \(\img(X) \subseteq D \in \mathcal B\).\\
+    Dann sind folgendes auch ZV: \(X + \lambda\), \(\lambda X\), \(X + Y\), \(XY\), \(f \circ X\)
+}
+\subsubsubsection{Verteilung einer allgemeinen ZV}{
+    Folgendes W'maß nennen wir die Verteilung einer allgemeinen ZV \(X\):\\
+    \(\Pro_X\QDp \mathcal B \longrightarrow [0,1], U \mapsto \Pro(X \in U)\)
+}
+\subsubsubsection{Kumulative Vertelungsfunktion}{
+    Sei \(X\) ZV, dann nennen wir \(F_X\QDp \R \longrightarrow [0,1], u \mapsto \Pro(X{\le}u)\), die kumulative Vertelungsfunktion oder auch CDF von \(X\). Wir nennen \(X\) stetige ZV, wenn \(F_X\) stetig ist. Für die CDF gelten folgende Eigenschaften: \(F_X\) ist monoton steigend, \(F_X\) ist rechtsstetig (also stetig für rechte Grenze), \(\lim_{\xi \rightarrow +\infty}F_X = 1 \wedge \lim_{\xi \rightarrow -\infty}F_X = 0\)\\
+    Es gilt außerdem wenn \(F_X\) stetig ist: \(\Pro(X{=}u) = 0\) für alle \(u \in \R\) und \(\Pro(X {\in} I) = \Pro(X {\in} I^o)\) für \(I^o\) das offene Intervall von \(I\).\\
+    Man kann eine CDF auch aus der PMF definieren mit: \(\R \longrightarrow [0,1], u \mapsto \sum_{\xi \le u}\rho_X(\xi)\), offenbar sind ZV, die solch eine PMF bzw. CDF haben dann immer diskret, wie wenn die Bildmenge von \(X\) abzählbar ist.
+}
+\textsc{Unabhängigkeit allgemeiner ZV}\\
+    Der Begriff der Unabhängigkeit überträgt sich für allgemeine ZV, nur, dass wir nicht mehr alle Teilmengen sondern nur noch alle Borellmengen betrachten und unendliche ZV-Familien sind erlaubt. \pagebreak \\
+\subsubsubsection{Wahrscheinlichkeitsdichtefunktionen}{
+    Sei \(\rho\QDp \R \longrightarrow \R_{\ge 0}\) integrierbar über alle kompakten Intervalle, sodass \(\int_{-\infty}^{+\infty}\rho = 1\) gilt, dann nennen wir \(\rho\) PDF oder auch Wahrscheinlichkeitsdichtefunktion.\\
+    Ist \(\rho\) PDF, dann ist \(F\QDp \R \longrightarrow [0,1], u \mapsto \int_{-\infty}^{u} \rho\) eine stetige CDF. \\
+    Hat die ZV \(X\) eine PDF \(\rho\), dann gilt: \(\Pro(a \le X \le b) = \int_{a}^{b}\rho\). Beachte hier, dass da die Punktevents keine Wahrscheinlichkeit haben, deswegen es egal ist, ob man \(<\) statt \(\le\) verwendet etc.
+}
+\subsubsubsection{Erwartungswert via PDF, LOTUS für allgemeine ZV}{
+    Sei \(X\) allgemeine ZV mit PDF \(\rho\), dann hat \(X\) genau dann einen EW, wenn \(\int_{-\infty}^{+\infty}|t| {\cdot} \rho(t) \text{ d}t < +\infty\) gilt, dann gilt:
+    \[\Ew(X) = \int_{-\infty}^{+\infty}t \cdot \rho(t)\text{ d}t\]
+    Sei \(f\QDp D \longrightarrow \R\) stetig mit \(\img(X) \subseteq D \subseteq \R\), dann hat \(f \circ X\) gena dann einen EW, wenn \(\int_{-\infty}^{+\infty}|f| {\cdot} \rho < +\infty\) gilt, dann gilt:
+    \[\Ew(f \circ X) = \int_{-\infty}^{+\infty}f \cdot \rho\]
 }
 \end{document}
