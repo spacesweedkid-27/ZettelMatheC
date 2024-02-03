@@ -285,6 +285,23 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Für \(X\) ZV oder Familie davon mit EW und \(\lambda \in \R\) oder gleichlange Familie davon gilt: \(\Ew(\lambda \cdot X) = \lambda \cdot \Ew(X)\) es gilt auch: \(\Ew(X + \lambda) = \Ew(X) + \lambda\)
 }
 \subsubsubsection{Varianz}{
-    Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). \(X\) hat genau dann Varianz, wenn \(X\) EW hat. Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\)
+    Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). \(X\) hat genau dann Varianz, wenn \(X\) EW hat. Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\).\\
+    Die Varianz kann auch so berechnet werden: \(\Var(X) = \Ew(X^2) - \Ew(X)^2\)\\
+    Es gilt: \(\Var(\Ber(p)) = p(1-p)\) und \(\Var(\Bin(n,p)) = np(1-p)\)\\
+    Für \((X_i)_{i\in I}\) eindliche Familie von ZV, die Paarweise unkorreliert sind und Varianz haben, dann gilt:\\
+    \(\Var(\sum_{i \in I}X_i) = \sum_{i \in I}\Var(X_i)\).
+}
+\subsubsubsection{Kovarianz und Unkorreliertheit}{
+    Seien \(X,Y\) ZV mit Varianz. Definiere die Kovarianz \(\Cov(X,Y) := \Ew(X{\cdot}Y) - \Ew(X){\cdot}\Ew(Y)\). \\
+    Wir nennen solche ZV unkorreliert, wenn \(\Cov(X,Y) = 0\) gilt. Offenbar folgt dies aus \((X,Y)\) unabhängig.
+}
+\textsc{Abschätzungen}\\
+    Markow-Ungleichung: Sei \(X\) ZV mit EW, sei \(\Pro(X \ge 0)\) = 1 und \(a > 0\). Dann gilt \(\Pro(X \ge a) \le \frac{\Ew(X)}{a}\).\\
+    Tschebyschow-Ungleichung: Sei \(X\) ZV mit Varianz und \(a > 0\), dann gilt:\\ \(\Pro(|X-\Ew(X)| \ge a) \le \frac{\Var(X)}{a^2}\) und \(\Pro(X-\Ew(X) \ge a) \le \frac{\Var(X)}{\Var(X) + a^2}\)\\
+    Sei \(\mu := \Ew(X), \sigma := \sigma(X), k > 0\), dann gilt nach Tschebyschow:\\ \(\Pro(\mu - k\sigma < X < \mu + k\sigma) = \Pro(|X-\mu| < k\sigma) \ge 1 {-} \frac{1}{k^2}\)
+\subsubsection*{Verteilungen mit Dichte}
+Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
+\subsubsubsection{Allgemeine ZV}{
+    Wir nennen \(X\QDp \Omega \longrightarrow \R\) eine ZV, wenn gilt: \(\forall u \in \R: [X \le u] \in \E\)
 }
 \end{document}
