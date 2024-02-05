@@ -185,50 +185,59 @@ Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathca
 1) \(\mathbb P(\Omega) = 1\) \\
 2) \(\forall(A_i)_i \in \mathcal S(\mathcal E), \bigcap_iA_i = \emptyset\QDp \mathbb P\left(\bigcup_iA_i\right) = \sum_{i}\mathbb P(A_i)\) \\
 Das Tripel \((\Omega, \mathcal E, \mathbb P)\) nennen wir Wahrscheinlichkeitsraum. \\ \\
-\text{\scshape Grundlegende Eigenschaften der Wahrscheinlichkeit} \\
-1) \(\Pro(\emptyset) = 0\) \\
-2) \(\forall A,B \in \E, A{\cap} B = \emptyset\QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B)\) \\
-3) \(\forall A,B \in \E, A \subseteq B\QDp \Pro(B{\setminus} A) = \Pro(B) - \Pro(A)\) \\
-4) \(\forall A \in \E: \Pro(A^c) = 1-\Pro(A)\) \\
-5) \(\forall A,B \in \E \QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B) - \Pro(A{\cap}B)\) \\ \\
-\text{\scshape Uniformes W'Maß} \\
-Nun beachte, dass wenn \(\Pro(A)\) und \(\Pro(B)\) bekannt sind für \(A{\cap}B = \emptyset\), dass dann auch \(\Pro(A{\cup}B)\) berechnet werden kann. Somit lassen sich Wahrscheinlichkeitsmaße konstruieren, wenn \(\forall \omega \in \Omega: \Pro(\omega)\) bekannt ist. \\
-Eines solcher W'Maße ist das Uniforme mit \(\Pro(\omega) := \frac{1}{|\Omega|}\). Dann gilt: \(\Pro(A) = \frac{|A|}{|\Omega|}\). \\ \\
-\text{\scshape Konditionierung} \\
-Seien \(A,B \in \E\) so, dass \(\Pro(B) > 0\). Wir definieren die W'keit von A konditioniert auf B, oder W'keit von A gegeben B als \(\Pro(A{|}B) := \frac{\Pro(A{\cap}B)}{\Pro(B)}\). \\ \\
-\text{\scshape Bayes} \\
-Für \(A,B \in \E\) mit \(\Pro(A), \Pro(B) > 0\) gilt:
-\(\Pro(A{|}B) = \frac{\Pro(A)}{\Pro(B)} \cdot \Pro(B{|}A)\) \\ \\
-\text{\scshape Odds} \\
-Wir definieren für \(A,B \in \E\) mit \(\Pro(B) > 0\) die Odds von A konditioniert auf B, bzw die Odds von A als:
-\[\Od(A{|}B) := \begin{cases}
-    \frac{\Pro(A{|}B)}{\Pro(A^c{|}B)} = \frac{\Pro(A{\cap}B)}{\Pro(A^c{\cap}B)} & \Pro(A{|}B < 1) \\ +\infty & \Pro(A{|}B = 1)
-\end{cases}\]
-\[\Od(A) := \begin{cases}
-    \frac{\Pro(A)}{\Pro(A^c)} & \Pro(A < 1) \\ +\infty & \Pro(A = 1)
-\end{cases} \puffer\puffer\puffer\puffer\puffer\puffer\gap\gap\]
-Folgende Umrechnungsregeln gelten: \\
-\(o := \frac{p}{1-p}\) sind die odds für \(p\) Wahrscheinlichkeit. \\
-\(p := \frac{o}{o+1}\) ist die Wahrscheinlichkeit für \(o\) odds. \\ \\
-\text{\scshape Unabhängigkeit} \\
-Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt:\\ \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
+\subsubsubsection{Grundlegende Eigenschaften der Wahrscheinlichkeit}{
+    1) \(\Pro(\emptyset) = 0\) \\
+    2) \(\forall A,B \in \E, A{\cap} B = \emptyset\QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B)\) \\
+    3) \(\forall A,B \in \E, A \subseteq B\QDp \Pro(B{\setminus} A) = \Pro(B) - \Pro(A)\) \\
+    4) \(\forall A \in \E: \Pro(A^c) = 1-\Pro(A)\) \\
+    5) \(\forall A,B \in \E \QDp \Pro(A{\cup} B) = \Pro(A) + \Pro(B) - \Pro(A{\cap}B)\) 
+}
+\subsubsubsection{Uniformes W'Maß}{
+    Nun beachte, dass wenn \(\Pro(A)\) und \(\Pro(B)\) bekannt sind für \(A{\cap}B = \emptyset\), dass dann auch \(\Pro(A{\cup}B)\) berechnet werden kann. Somit lassen sich Wahrscheinlichkeitsmaße konstruieren, wenn \(\forall \omega \in \Omega: \Pro(\omega)\) bekannt ist. \\
+Eines solcher W'Maße ist das Uniforme mit \(\Pro(\omega) := \frac{1}{|\Omega|}\). Dann gilt: \(\Pro(A) = \frac{|A|}{|\Omega|}\).
+}
+\subsubsubsection{Konditionierung}{
+    Seien \(A,B \in \E\) so, dass \(\Pro(B) > 0\). Wir definieren die W'keit von A konditioniert auf B, oder W'keit von A gegeben B als \(\Pro(A{|}B) := \frac{\Pro(A{\cap}B)}{\Pro(B)}\).
+}
+\subsubsubsection{\scshape Bayes}{
+    Für \(A,B \in \E\) mit \(\Pro(A), \Pro(B) > 0\) gilt:
+    \(\Pro(A{|}B) = \frac{\Pro(A)}{\Pro(B)} \cdot \Pro(B{|}A)\)
+}
+\subsubsubsection{Odds}{
+    Wir definieren für \(A,B \in \E\) mit \(\Pro(B) > 0\) die Odds von A konditioniert auf B, bzw die Odds von A als:
+    \[\Od(A{|}B) := \begin{cases}
+        \frac{\Pro(A{|}B)}{\Pro(A^c{|}B)} = \frac{\Pro(A{\cap}B)}{\Pro(A^c{\cap}B)} & \Pro(A{|}B < 1) \\ +\infty & \Pro(A{|}B = 1)
+    \end{cases}\]
+    \[\Od(A) := \begin{cases}
+        \frac{\Pro(A)}{\Pro(A^c)} & \Pro(A < 1) \\ +\infty & \Pro(A = 1)
+    \end{cases} \puffer\puffer\puffer\puffer\puffer\puffer\gap\gap\]
+    Folgende Umrechnungsregeln gelten: \\
+    \(o := \frac{p}{1-p}\) sind die odds für \(p\) Wahrscheinlichkeit. \\
+    \(p := \frac{o}{o+1}\) ist die Wahrscheinlichkeit für \(o\) odds.
+}
+\textsc{\underline{Unabhängigkeit}}
+    Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt:\\ \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
 \subsubsection*{Zufallsvariablen über diskreten Wahrscheinlichkeitsräumen}
-\text{\scshape Zufallsvariablen} \\
-Sei \((\Omega, \pro(\Omega), \Pro)\) diskreter W'Raum. \\
-Wir nennen alle Funktionen \(X\QDp \Omega {\longrightarrow} \R\) Zufallsvariablen. \\ \\
-\text{\scshape Events über Zufallsvariablen} \\
-Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZV elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen. \\ \\
-\text{\scshape Gesetze der neuen Events} \\
-1) \(\Pro(\bot \mid \beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
-2) \(\Pro(\neg\phi \mid \beta) = 1 - \Pro(\phi|\beta)\) \\
-3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
+\subsubsubsection{Zufallsvariablen}{
+    Sei \((\Omega, \pro(\Omega), \Pro)\) diskreter W'Raum. \\
+    Wir nennen alle Funktionen \(X\QDp \Omega {\longrightarrow} \R\) Zufallsvariablen.
+}
+\subsubsubsection{Events über Zufallsvariablen}{
+    Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZV elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen.
+}
+\textsc{\underline{Gesetze der neuen Events}} \\
+    1) \(\Pro(\bot \mid \beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
+    2) \(\Pro(\neg\phi \mid \beta) = 1 - \Pro(\phi|\beta)\) \\
+    3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
 \subsubsection*{Verteilungen über Zufallsvariablen}
-\text{\scshape Verteilung} \\
-Man sieht, dass die Funktion \(\Pro_X\QDp \mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X {\in} U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZV \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\). \\ \\
-\text{\scshape Träger} \\
-Wir definieren den \textbf{Träger} von \(X\) als: \(\supp(X) := \{{u \in \R} \mid {\Pro(X=u) > 0}\}\). \\
-Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZV über diskreten W'räumen abzählbar. \\
-Somit schreibt man auch \(\Pro(X {\in} U) = \Pro(X {\in} {U \cap \supp(X)}) = \sum_{u \in U \cap \supp(X)}\Pro(X {=} u) =: \sum_{u \in U}\Pro(X {=} u)\). \\ \\
+\subsubsubsection{Verteilung}{
+    Man sieht, dass die Funktion \(\Pro_X\QDp \mathcal P(\R) \longrightarrow [0,1], U \mapsto \Pro(X {\in} U)\) ein W'maß für den Eventraum \((\R, \mathcal P(\R))\) ergibt gegeben der ZV \(X\) und dem diskretem Eventraum \((\Omega, \mathcal P(\Omega), \Pro)\). \\ Diese Funktion nennen wir Verteilung von \(X\).
+}
+\subsubsubsection{Träger}{
+    Wir definieren den \textbf{Träger} von \(X\) als: \(\supp(X) := \{{u \in \R} \mid {\Pro(X=u) > 0}\}\). \\
+    Offenbar ist \(X^\rightarrow(\Omega) = \img(X)\) abzählbar (da \(\Omega\) abzählbar ist), und es gilt: \(\supp(X) \subseteq \img(X)\), also ist der Träger einer ZV über diskreten W'räumen abzählbar. \\
+    Somit schreibt man auch \(\Pro(X {\in} U) = \Pro(X {\in} {U \cap \supp(X)}) = \sum_{u \in U \cap \supp(X)}\Pro(X {=} u) =: \sum_{u \in U}\Pro(X {=} u)\).
+}
 \subsubsubsection{Probability Mass Function (PMF)}{
     Wir nennen \(\rho_X \QDp \R \longrightarrow [0,1],\gap u \mapsto \Pro(X = u)\) die PMF von \(X\).
     }
@@ -263,14 +272,13 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Wir sagen \((X_i)_{i \in I} \sim \mathcal V\) i.d.d. für eine Verteilung \(V\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \\
     Unabhängige ZV 
 }
-\textsc{Summe unabhängiger Bernoulli-ZV}\\
+\textsc{\underline{Summe unabhängiger Bernoulli-ZV}}\\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., und definiere \(S := \sum_{i=1}^{n}X_i\), dann gilt für \(k \in [n]\):
     \[\Pro(S {=} k) = \binom{n}{k}p^k(1-p)^{n-k}\]
     \pagebreak \\
-\textsc{Binominalverteilung} \\
+\textsc{\underline{Binominalverteilung}} \\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., dann nennen wir \(X\) binomialverteilt und schreiben:
     \[(X_1, \dots, X_n) \sim \Ber(p) \text{ i.i.d.} \Longrightarrow \sum_{i=1}^{n}X_i \sim \Bin(n,p)\]
-\todo Möglicherweise HIV Beispiel einfügen für ein Krankheits-Beispiel.
 \subsubsection*{Erwartungswert und Varianz von ZV über diskreten W'räumen}
 \subsubsubsection{Erwartungswert}{
     Sei \(X\) ein ZV. \(X\) hat einen Erwartungswert, genau dann, wenn \(\Ew := \sum_{u \in \R}u \cdot \Pro(X {=} u)\) definiert ist bzw. summierbar ist für \(|u|\) statt \(u\). Offenbar gilt: \(\Ew(X) = \sum_{\omega \in \Omega}X(\omega) \cdot \Pro(\omega)\).
@@ -296,7 +304,7 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Seien \(X,Y\) ZV mit Varianz. Definiere die Kovarianz \(\Cov(X,Y) := \Ew(X{\cdot}Y) - \Ew(X){\cdot}\Ew(Y)\). \\
     Wir nennen solche ZV unkorreliert, wenn \(\Cov(X,Y) = 0\) gilt. Offenbar folgt dies aus \((X,Y)\) unabhängig.
 }
-\textsc{Abschätzungen}\\
+\textsc{\underline{Abschätzungen}}\\
     Markow-Ungleichung: Sei \(X\) ZV mit EW, sei \(\Pro(X \ge 0)\) = 1 und \(a > 0\). Dann gilt \(\Pro(X \ge a) \le \frac{\Ew(X)}{a}\).\\
     Tschebyschow-Ungleichung: Sei \(X\) ZV mit Varianz und \(a > 0\), dann gilt:\\ \(\Pro(|X-\Ew(X)| \ge a) \le \frac{\Var(X)}{a^2}\) und \(\Pro(X-\Ew(X) \ge a) \le \frac{\Var(X)}{\Var(X) + a^2}\)\\
     Sei \(\mu := \Ew(X), \sigma := \sigma(X), k > 0\), dann gilt nach Tschebyschow:\\ \(\Pro(\mu - k\sigma < X < \mu + k\sigma) = \Pro(|X-\mu| < k\sigma) \ge 1 {-} \frac{1}{k^2}\)
@@ -305,11 +313,11 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \subsubsubsection{Allgemeine ZV}{
     Wir nennen \(X\QDp \Omega \longrightarrow \R\) eine ZV, wenn gilt: \(\forall u \in \R: [X \le u] \in \E\)
 }
-\textsc{Borellmengen}
+\textsc{\underline{Borellmengen}}
     Um sinnvolle Events für eine allgemeine ZV zu konstruieren, definieren wir eine \(\sigma\)-Algebra, die nicht die Potenzmenge von \(\R\) ist. Für \(\mathcal G := \{]{-}\infty, u[ \mid u \in \R\}\), was selbst schon eine gültige \(\sigma\)-Algebra ist, definieren wir \(\mathcal B := \bigcap_{\mathcal G \subseteq \E' \subseteq \mathcal P(\R) \wedge \E \text{ ist \(\sigma\)-Algebra über \(\R\)}}\E'\). \(\mathcal B\) ist \(\sigma\)-Algebra.\\
     Folgendes sind Borellmengen: Intervalle, abzählbare Mengen, Offene Mengen, Vereinigungen abzählbar vieler Borellmengen, Schnitte abzählbar vieler Borellmengen, Komplemente von Borellmengen. \\
     Außerdem ist das kartesische Produkt über Borellmengen wieder Borellmenge, somit übertragen sich auch noch äquivalente Definitionen und Regeln für Folgen von ZV, welche über Folgen von Borellmengen agieren.
-    \pagebreak \\
+    \\ \\
 \subsubsubsection{Komb'Satz für allgemeine ZV}{
     Seien \(X,Y\) ZV, \(\lambda \in \R\), \(f\QDp D \longrightarrow \R\) stetig für \(\img(X) \subseteq D \in \mathcal B\).\\
     Dann sind folgendes auch ZV: \(X + \lambda\), \(\lambda X\), \(X + Y\), \(XY\), \(f \circ X\)
@@ -323,23 +331,33 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
     Es gilt außerdem wenn \(F_X\) stetig ist: \(\Pro(X{=}u) = 0\) für alle \(u \in \R\) und \(\Pro(X {\in} I) = \Pro(X {\in} I^o)\) für \(I^o\) das offene Intervall von \(I\).\\
     Man kann eine CDF auch aus der PMF definieren mit: \(\R \longrightarrow [0,1], u \mapsto \sum_{\xi \le u}\rho_X(\xi)\), offenbar sind ZV, die solch eine PMF bzw. CDF haben dann immer diskret, wie wenn die Bildmenge von \(X\) abzählbar ist.
 }
-\textsc{Unabhängigkeit allgemeiner ZV}\\
+\textsc{\underline{Unabhängigkeit allgemeiner ZV}}\\
     Der Begriff der Unabhängigkeit überträgt sich für allgemeine ZV, nur, dass wir nicht mehr alle Teilmengen sondern nur noch alle Borellmengen betrachten und unendliche ZV-Familien sind erlaubt. \\ \\
 \subsubsubsection{Wahrscheinlichkeitsdichtefunktionen}{
     Sei \(\rho\QDp \R \longrightarrow \R_{\ge 0}\) integrierbar über alle kompakten Intervalle, sodass \(\int_{-\infty}^{+\infty}\rho = 1\) gilt, dann nennen wir \(\rho\) PDF oder auch Wahrscheinlichkeitsdichtefunktion.\\
     Ist \(\rho\) PDF, dann ist \(F\QDp \R \longrightarrow [0,1], u \mapsto \int_{-\infty}^{u} \rho\) eine stetige CDF. \\
     Hat die ZV \(X\) eine PDF \(\rho\), dann gilt: \(\Pro(a \le X \le b) = \int_{a}^{b}\rho\). Beachte hier, dass da die Punktevents keine Wahrscheinlichkeit haben, deswegen es egal ist, ob man \(<\) statt \(\le\) verwendet etc.
 }
-\subsubsubsection{Erwartungswert via PDF, LOTUS für allgemeine ZV}{
+\textsc{\underline{Erwartungswert via PDF, LOTUS für allgemeine ZV}}\\
     Sei \(X\) allgemeine ZV mit PDF \(\rho\), dann hat \(X\) genau dann einen EW, wenn \(\int_{-\infty}^{+\infty}|t| {\cdot} \rho(t) \text{ d}t < +\infty\) gilt, dann gilt:
     \[\Ew(X) = \int_{-\infty}^{+\infty}t \cdot \rho(t)\text{ d}t\]
     Sei \(f\QDp D \longrightarrow \R\) stetig mit \(\img(X) \subseteq D \subseteq \R\), dann hat \(f \circ X\) gena dann einen EW, wenn \(\int_{-\infty}^{+\infty}|f| {\cdot} \rho < +\infty\) gilt, dann gilt:
     \[\Ew(f \circ X) = \int_{-\infty}^{+\infty}f \cdot \rho\]
-}
 \subsubsubsection{Diverse Verteilungen}{
-    \textit{Uniforme Verteilung}: Seien \(a < b \in \R\), wir sagen eine ZV \(X\) hat uniforme Verteilung zwischen \(a\) und \(b\) und schreiben \(X \sim \Unif(a,b)\), wenn \(X\) folgende PDF hat:
+    \textbf{\textit{Uniforme Verteilung}}: Seien \(a < b \in \R\), wir sagen eine ZV \(X\) hat uniforme Verteilung zwischen \(a\) und \(b\) und schreiben \(X \sim \Unif(a,b)\), wenn \(X\) folgende PDF hat:
     \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{1}{b-a}\), wenn \(t \in ]a,b[\) sonst \(0\). Es gilt: \(\Ew(\Unif(a,b)) = \frac{a+b}{2}\) und \(\Var(\Unif(a,b)) = \frac{(b-a)^2}{12}\) \\
-    \textit{Exponentialverteilung}: Sei \(\lambda > 0\), wir sagen eine ZV \(X\) hat Exponentialverteilung mit Rate \(\lambda\), wenn folgende Funktion die PDF von \(X\) ist:
-    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \lambda e^{-\lambda t}\), wenn \(t \ge 0\) und sonst \(0\). Es gilt: \(\Ew(\Exp(\lambda)) = \lambda^{-1}\) und \(\Var(\Exp(\lambda)) = \lambda^{-2}\)
+    \textbf{\textit{Exponentialverteilung}}: Sei \(\lambda > 0\), wir sagen eine ZV \(X\) hat Exponentialverteilung mit Rate \(\lambda\), wenn folgende Funktion die PDF von \(X\) ist:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \lambda e^{-\lambda t}\), wenn \(t \ge 0\) und sonst \(0\). Es gilt: \(\Ew(\Exp(\lambda)) = \lambda^{-1}\) und \(\Var(\Exp(\lambda)) = \lambda^{-2}\)\\
+    \textbf{\textit{Pareto-Verteilung}}: Sei \(a > 0\), wir sagen eine ZV \(X\) hat Pareto-Verteilung, wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{a}{t^{a+1}}\), wenn \(t \ge 1\) und sonst \(0\). Es gilt: \(\Ew(\text{Par}(a)) = \frac{a}{a-1}\), wenn \(a > 1\) und wenn \(a > 2\) gilt: \(\Var(\text{Par}(a)) = \frac{a}{(a-1)^2(a-2)}\) \\
+    \textbf{\textit{Cauchy-Verteilung}}: Sei \(t_0 \in \R, \gamma > 0\), wir sagen \(X\) hat Cauchy-Verteilung mit Lageparameter \(t_0\) und Skalenparameter \(\gamma\), wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \left(\pi \gamma \left(1+\left(\frac{t-t_0}{\gamma}\right)^2\right)\right)^{-1}\). Die Cauchy-Verteilung hat keinen EW weder Varianz. \\
+    \textbf{\textit{Normal-Verteilung}}: Sei \(\mu \in \R\) und \(\sigma > 0\). Wir sagen \(X\) hat Normalverteilung mit EW \(\mu\) und Varianz \(\sigma^2\),\\
+    und schreiben \(X \sim \Norm(\mu, \sigma^2)\), wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{> 0}, t \mapsto \frac{e^{-\frac{1}{2}\cdot\left(\frac{t {-} \mu}{\sigma}\right)^2}}{\sqrt{2\pi} \cdot \sigma}\)
+    }
+\subsubsubsection{Eigentschaften der Normalverteilung}{
+    Sei \(X \sim \Norm(\mu, \sigma^2)\) und \(\delta \in \R\), \(\lambda \ne 0\). Dann gilt: \(\lambda X + \delta \sim \Norm(\lambda\mu + \delta, \lambda^2\sigma^2)\). Es gilt auch: \(\Ew(X) = \mu\) und \(\Var(X) = \sigma^2\).\\
+    Für \((X_i)_{i \in I}\) endliche Familie an ZV mit \(X_i \sim \Norm(\mu_i, \sigma_i^2)\) i.d.d. gilt: \({\sum_{i\in I}} {X_i} \gap \sim \gap {\Norm}{\left(\sum_{i\in I}\mu_i, \sum_{i\in I}\sigma_i^2\right)}\).
 }
 \end{document}
