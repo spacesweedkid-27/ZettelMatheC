@@ -7,37 +7,43 @@
 \textbf{Henri Heyden \gedanke stu240825}
 \subsection*{Analysis}
 \subsubsection*{Integrierbarkeit}
-\text{\scshape Riemann Summe}\\
-Sei \(f : [a,b] \longrightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
-Dann nennen wir \(R(f,x,\xi) := \sum_{i=1}^n (x_i - x_{i-1}) \cdot f(\xi_i)\) Riemann Summe. \\ \\
-\text{\scshape Integrierbarkeit}\\
-Wir nennen \(f\) integrierbar, wenn\\\(\exists R_0 \in \R \forall \epsilon > 0 \exists \delta > 0 \forall(x,\xi) \in \text{PS}(a,b,\delta): |R(f,x,\xi) - R_0| < \epsilon\) gilt. \\
-Das Integral ist eindeutig, schreibe \(\int_{a}^{b} f\) oder \(\int f\) hierfür. \\
-Wir schreiben auch \(\int f(x)\text dx := \int f\) \\
-Ist \(f\) integrierbar, dann kann man das Integral mit einer Beliebigen Folge an \((x_n,\xi_n)_n\) finden wessen Feinheit den Limes 0 hat, sodass die Riemann-Summe konvergiert. \\
-\(f\) ist genau dann integrierbar, wenn für alle 2 solcher Folgen ihre Differenz immer zu 0 konvergiert. \\ \\
-\text{\scshape Stetig und Kompakt} \\
-Eine Funktion \(f\): \\
-\dots ist stetig in \(x \in \text{dom}(f)\), wenn alle Funktionslimetes zu \(x\) gleich sind.\\
-\dots ist beschränkt, wenn ihre Domain eine obere und untere Schranke hat. \\
-\dots ist abgeschlossen, wenn das komplement ihrer Domain offen ist. \\
-\dots ist kompakt, wenn sie beschränkt und abgeschlossen ist. \\
-Ist eine Funktion kompakt stetig, dann ist sie gleichmäßig stetig und somit integrierbar. \\ \\
-\textsc{Abschätzungen} \\
-Für \(f \le g\) gilt: \(\int f \le \int g\). \\
-Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\)
+\subsubsubsection{\scshape Riemann Summe}{
+    Sei \(f : [a,b] \longrightarrow \R\), seien \((x, \xi)\) Partition und Stützstellen aus \([a,b]\).\\
+    Dann nennen wir \(R(f,x,\xi) := \sum_{i=1}^n (x_i - x_{i-1}) \cdot f(\xi_i)\) Riemann Summe.
+}
+\subsubsubsection{\scshape Integrierbarkeit}{
+    Wir nennen \(f\) integrierbar, wenn\\\(\exists R_0 \in \R \forall \epsilon > 0 \exists \delta > 0 \forall(x,\xi) \in \text{PS}(a,b,\delta): |R(f,x,\xi) - R_0| < \epsilon\) gilt. \\
+    Das Integral ist eindeutig, schreibe \(\int_{a}^{b} f\) oder \(\int f\) hierfür. \\
+    Wir schreiben auch \(\int f(x)\text dx := \int f\) \\
+    Ist \(f\) integrierbar, dann kann man das Integral mit einer Beliebigen Folge an \((x_n,\xi_n)_n\) finden wessen Feinheit den Limes 0 hat, sodass die Riemann-Summe konvergiert. \\
+    \(f\) ist genau dann integrierbar, wenn für alle 2 solcher Folgen ihre Differenz immer zu 0 konvergiert.
+}
+\subsubsubsection{\scshape Stetig und Kompakt}{
+    Eine Funktion \(f\): \\
+    \dots ist stetig in \(x \in \text{dom}(f)\), wenn alle Funktionslimetes zu \(x\) gleich sind.\\
+    \dots ist beschränkt, wenn ihre Domain eine obere und untere Schranke hat. \\
+    \dots ist abgeschlossen, wenn das komplement ihrer Domain offen ist. \\
+    \dots ist kompakt, wenn sie beschränkt und abgeschlossen ist. \\
+    Ist eine Funktion kompakt stetig, dann ist sie gleichmäßig stetig und somit integrierbar.\\
+    Aus Lipschitzstetigkeit (\(\exists L\in \R\QDp \forall x_1,x_2\in \dom(f)\QDp |f(x_1)-f(x_2)| \le L \cdot |x_1 - x_2|\)) folgt auch gleichmäßige Stetigkeit.
+}
+\textsc{\underbar{Abschätzungen}}\\
+    Für \(f \le g\) gilt: \(\int f \le \int g\). \\
+    Es gilt: \((b-a) \cdot \inf(f) \le \int_{a}^{b}f \le (b-a) \cdot \sup(f)\)
 \subsubsection*{Integrationstechniken}
-\text{\scshape Hauptsatz der Differenzialrechnung} \\
-Schreibe \([\phi]_u^v := \phi(v) - \phi(u)\) \\
-Sei \(f,F: \Omega \longrightarrow \R\) so, dass \(F' = f\) gilt. \\
-Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\). \\ \\
-\text{\scshape Partielle Integration} \\
-Für \(f,g : [a,b] \longrightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\) \\ \\
-\text{\scshape Substitution} \\
-Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
-sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
-\[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\] \\
-\text{\scshape Stammfunktionen} \\ \\
+\subsubsubsection{Hauptsatz der Differenzialrechnung}{
+    Schreibe \([\phi]_u^v := \phi(v) - \phi(u)\) \\
+    Sei \(f,F: \Omega \longrightarrow \R\) so, dass \(F' = f\) gilt. \\
+    Dann gilt: \(\int f = F(\sup(\Omega)) - F(\inf(\Omega)) = F(b) - F(a) = [F]_a^b\) für \(\Omega = [a,b]\).
+}
+\subsubsubsection{Partielle Integration}{
+    Für \(f,g : [a,b] \longrightarrow \R\) gilt: \(\int_{a}^{b}fg' = [fg]_a^b - \int_{a}^{b}f'g\)
+}
+\textsc{\underbar{Substitution}}\\
+    Für \(f\) stetig reel und \(\phi\) stetig differenzierbar reel mit \(u,v \in \text{dom}(\phi)\),\\
+    sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subseteq \text{dom}(f)\) ist, gilt:
+    \[\int_{\phi(u)}^{\phi(v)}f = \int_{u}^{v}(f \circ \phi) \cdot \phi'\] \\
+\text{\scshape \underbar{Stammfunktionen}} \\ \\
 \begin{tabular}{ c | c | c | c }
     \hline
     Domain & \(f(x)\) & \(F(x)\) & args \\
@@ -48,57 +54,57 @@ sodass \([u,v] \subseteq \text{dom}(\phi)\) und \(\phi^\rightarrow([u,v]) \subse
     \(\R\) & \(b^x\) & \(\frac{b^x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
     \(\R_{> 0}\) & \(\log_b(x)\) & \(\frac{x\ln(x) - x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
     \(]\smi 1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
-    \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & \\
+    \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & 
 \end{tabular}
 \subsubsection*{Uneigentliche Integrale}
-\text{\scshape Integral über \(x^{-\alpha}\)} \\
+\text{\scshape \underbar{Integral über \(x^{-\alpha}\)}} \\
 1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in {]0{,}1]}\) divergiert das Integral. \\
 2) \(\forall \alpha \in ]0,1[: \int_{0}^{1}x^{-\alpha} \text d x = \frac{1}{1 - \alpha}\). \puffer Für \(\alpha \ge 1\) divergiert das Integral. \\ \\
-\text{\scshape Vergleichskriterium} \\
+\text{\scshape \underbar{Vergleichskriterium}} \\
 Seien \(f,g: [a,b[ \longrightarrow \R\) integrierbar über alle Teilintervalle und \(|f| \le g\). \\
 Konvergiert das uneigentliche Integral über \(g\), dann konvergiert das uneigentliche Integral über \(f\). \\ \\
-\text{\scshape Integralkriterium} \\
+\text{\scshape \underbar{Integralkriterium}} \\
 Warnung nicht im Skript, trotzdem leichtes Argument. \\
 Sei \(p \in \Z\) und \(f : [p, \infty[ \longrightarrow \R_{> 0}\) monoton fallend. \\
 Dann ist \(f\) integrierbar genau dann, wenn \(\sum_{n = p}^{\infty} f(n)\) konvergiert. \\
 Zur Motivation betrachte \(\sum_{n = p}^{\infty} f(n)\) als obere Schranke und Annäherung des Integrals mittels Riemann Summe mit gleichmäßiger Feinheit 1.
 \subsection*{Analytische Grundstrukturen}
 \subsubsection*{Metrische Räume}
-\text{\scshape Metrik} \\
+\text{\scshape \underbar{Metrik}} \\
 Eine Metrik ist eine Funktion \(d : M^2 \longrightarrow \R_{\ge 0}\) mit folgenden Eigentschaften:\\
 1) \(d(x,y) = 0 \Longleftrightarrow x = y\) \puffer \puffer \gap \gap (positive Definitheit) \\
 2) \(d(x,y) = d(y,x)\) \puffer \puffer \puffer \puffer \gap \gap \gap (Symmetrie) \\
 3) \(d(x,y) \le d(x,z) + d(z,y)\) \puffer (Dreiecksungleichung) \\ \\
-\text{\scshape Eigenschaften der Metrik} \\
+\text{\scshape \underbar{Eigenschaften der Metrik}} \\
 Für Metrische Räume gelten alle analytischen Gesetze und Sätze aus MatheB nur mit jeder Metrik nicht nur der Betragsmetrik.
 Somit sind Begriffe wir Stetigkeit, Limes, Kompaktheit, Funktionslimes etc. äquivalent.
 \subsubsection*{Normierte Räume}
-\text{\scshape Norm} \\
+\text{\scshape \underbar{Norm}} \\
 Sei \(V\) Vektorraum, dann ist \(||\cdot||\) Norm auf \(V\), wenn folgende Gesetze gelten:\\
 1) \(||v|| = 0 \Longleftrightarrow v = 0\) \\
 2) \(||\lambda|| = |\lambda| \cdot ||v||\) \\
 3) \(||u+v|| \le ||u|| + ||v||\) \\ \\
-\text{\scshape Beispielnormen über \(\R^n\)} \\
+\text{\scshape \underbar{Beispielnormen über \(\R^n\)}} \\
 Sei \(k \in \N_{> 0}\), dann ist \(||\cdot||_k : \R^n \longrightarrow \R, v \mapsto \sqrt[k]{\sum_{i=1}^{n}|v_i|}\) Norm \\
 Die Funktion \(||\cdot||_\infty : \R^n \longrightarrow \R, v \mapsto \max_{i \in [n]}|v_i|\) ist Norm \\ \\
-\text{\scshape Eigenschaften der Norm} \\
+\text{\scshape \underbar{Eigenschaften der Norm}} \\
 Es gilt \(||-v|| = ||v||\) \\
 Außerdem ist \(V^2 \longrightarrow \R_{\ge 0}, (u,v) \mapsto ||u-v||\) Metrik. Somit lassen sich analytische Grundbegriffe für Vektorräume komposieren und alle Eigentschaften der Metrischen Räume für jene Metrik anwenden. \\
 Normen sind stetig. Also \(||\cdot||\) ist eine stetige Funktion. \\ \\
-\text{\scshape Äquivalenz von Normen} \\
+\text{\scshape \underbar{Äquivalenz von Normen}} \\
 Seien \((V, ||\cdot||)\) und \((V, ||\cdot||')\) normierte Räume. Wir nennen \(||\cdot||\) und \(||\cdot||'\) äquivalent, wenn folgendes gilt: \(\exists \alpha,\beta > 0: \forall v \in V: \alpha ||v|| \le ||v||' \le \beta||v||\) \\
 Umgebungen über äquivalente Normen sind äquivalent, genau wie Konvergenz mit den gleichen Limetes, Stetigkeiten und Kompaktheiten. \\
 Auf endlich dimensionalen Vektorräumen sind alle Normen äquivalent.
 \subsection*{Differentation im Mehrdimensionalen}
 Es seien \(V, W\) Vektorräume über \(\R\), \(\Omega \subseteq V\).
 \subsubsection*{Differenzierbarkeit}
-\text{\scshape Definiton der Differenzierbarkeit} \\
+\text{\scshape \underbar{Definiton der Differenzierbarkeit}} \\
 Wir nennen \(f : \Omega \longrightarrow W\) differenzierbar in \(v\), wenn \[\exists \phi \in \text L(V,W): \lim_{\tilde v \longrightarrow v} \frac{||f(\tilde v) - (f(v) + \phi(\tilde v - v))||_W}{||\tilde v - v||_V} = 0_\R\]
 gilt. Dann nennen wir \(\phi\) Ableitung von \(f\) und schreiben \(D(f) := \phi\). Offenbar da \(\phi\) linear stetig ist, existiert eine Matrix für \(\phi\). Folgende Definiton ist äquivalent: \[\exists \phi \in \text L(V,W): \lim_{h \longrightarrow 0_V} \frac{||f(v + h) - (f(v) + \phi(h))||_W}{||h||_V} = 0_\R\]
 Gilt \(V = W = \R\), dann ist die Definiton äquivalent zur Differenzierbarkeit im bekannten Sinne.
 \subsubsection*{Ableitungsregeln}
 Ist \(f\) differenzierbar, dann sind alle Komponentenfunktionen von \(f\) \((V,\R)\)-differenzierbar. \\ \\
-\text{\scshape Kombinationssätze} \\
+\text{\scshape \underbar{Kombinationssätze}} \\
 Für \(\lambda : \Omega \longrightarrow \R\), \(f,g : \Omega \longrightarrow V\) differenzierbar gelten folgende Regeln:\\
 1) \(D(f+g) = D(f) + D(g)\) \\
 2) \(D(\lambda f) = \lambda D(f)\) \\
@@ -106,10 +112,10 @@ Für \(\lambda : \Omega \longrightarrow \R\), \(f,g : \Omega \longrightarrow V\)
 4) \(D\left(\frac{f}{\lambda}\right) = \frac{\lambda D(f) - fD(\lambda)}{\lambda^2}\)
 \subsubsection*{Partielle Ableitungen}
 Seien \(\Omega \subseteq \R^n, f : \Omega \longrightarrow \R^d\), \(i \in [n], j \in [d], v \in \Omega\). \\ \\
-\text{\scshape Partielle Differenzierbarkeit} \\
+\text{\scshape \underbar{Partielle Differenzierbarkeit}} \\
 Wir nennen \(f_j\) partiell differenzierbar in \(v\) nach der i-ten Variable, wenn \(f_{j,v,i}\) in \(v_i\) differenzierbar ist.\\
 Wir definieren \(\partial_i f_j(v) := f_{j,v,i}'(v_i)\). \\ \\
-\text{\scshape Beispiel} \\
+\text{\scshape \underbar{Beispiel}} \\
 Sei \(f: \R \times \R_{\ge 0} \longrightarrow \R^4, (x,y) \mapsto \left(x+y, xy, x^2+3y-6, -2\sqrt{y}\right)\). \\
 Dann gilt:\\
 \(\partial_1f_2(x,y) = y\), \puffer
@@ -117,7 +123,7 @@ Dann gilt:\\
 \(\partial_1f_4(x,y) = 0\), \\
 \(\partial_2f_1(x,y) = 1\), \puffer
 \(\partial_2f_3(x,y) = 3\) \\ \\
-\text{\scshape Gradient und Jacobi-Matrix} \\
+\text{\scshape \underbar{Gradient und Jacobi-Matrix}} \\
 Wir definieren den Gradienten von \(f_j\) als \(\grad_{f_j}(v) := (\partial_1f_j(v), \dots, \partial_nf_j(v))\). \\
 Des Weiteren definieren wir die Jacobi-Matrix von \(f\):\[\J_f(v) := \begin{bmatrix}
     \partial_1f_1(v) & \hdots & \partial_nf_1(v) \\
@@ -129,15 +135,15 @@ Des Weiteren definieren wir die Jacobi-Matrix von \(f\):\[\J_f(v) := \begin{bmat
     \grad_{f_d}(v)
 \end{bmatrix}\]
 Ist \(f\) differenzierbar in \(v\), dann ist \(\J_f(v)\) Ableitung von \(f\), aber Achtung: Vollständige partielle Differenzierbarkeit impliziert NICHT totale Differenzierbarkeit! \\ \\
-\text{\scshape Totale Differenzierbarkeit aus Partieller Differenzierbarkeit} \\
+\text{\scshape \underbar{Totale Differenzierbarkeit aus Partieller Differenzierbarkeit}} \\
 Ist \(f\) vollständig partiell differenzierbar und alle Ableitung sind stetig, dann ist \(f\) total differenzierbar. \\ \\
-\text{\scshape \(\Co\)-Funktionen und \(\Ct\)-Funktionen} \\
+\text{\scshape \underbar{\(\Co\)-Funktionen und \(\Ct\)-Funktionen}} \\
 Wir nennen \(f: \Omega \longrightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar. \\
 \(f\) ist \(\Co\)-Funktion, wenn all ihre Komponentenfunktionen aus Kombinationen von Projektionen stetiger differenzierbaren eindimensionalen Funktionen bestehen. \\
 Wir nennen \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wenn sie eine \(\Co\)-Funktion ist, und \(\forall i \in [n]: \partial_if\) stetig partiell differenzierbar ist. \\
 Dies ist äquivalent dazu, dass \(\grad_f\) eine \(\Co\)-Funktion ist. \\Die partielle
 Ableitung von \(\partial_i f\) nach der \(j\)-ten Variable bezeichnen wir mit \(\partial_j\partial_if\). \\ \\
-\text{\scshape Hesse-Matrix} \\
+\text{\scshape \underbar{Hesse-Matrix}} \\
 Sei \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die Hesse-Matrix von \(f\) als: \[\He_f := \begin{bmatrix}
     \partial_1\partial_1f(v) & \hdots & \partial_1\partial_nf(v) \\
     \vdots & & \vdots \\
@@ -146,22 +152,22 @@ Sei \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wir definieren die H
 Gradienten der Komponentenfunktionen von \(\grad_f\).
 Die Transposition ist auch nicht nötig, da die Hesse-Matrix symmetrisch ist. Das heißt es gilt: \(\forall i,j\in[n]{:}\text{ } \partial_i\partial_jf = \partial_j\partial_if\).
 \subsubsection*{Lokale Extremstellen}
-\text{\scshape Definiton} \\
+\text{\scshape \underbar{Definiton}} \\
 Wir nennen \(v \in \Omega\) eine lokale Maximumstelle/Minimumstelle von \(f\), wenn gilt:\\
 \(\exists U \in \mathcal U(v){:} \forall u \in U{:} f(u) \le f(v)\) bzw. \(f(u) \ge f(v)\). \\
 Wir bezeichnen die Menge der lokalen Maximumstellen \(\LMAX(f)\) und die Menge der lokalen Minimumstellen \(\LMIN(f)\). Die Vereinigung beider Mengen ist \(\text{\scshape Lext}(f)\). \\ \\
-\text{\scshape Definitheit} \\
+\text{\scshape \underbar{Definitheit}} \\
 Sei \(A\in\R^{n\times n}\) symmetrisch, dann nennen wir \(A\) \dots \\
 \dots positiv definit, wenn \(\forall k \in [n]: \det(A_k) > 0\) \\
 \dots negativ definit, wenn \(\forall k \in [n]: \det(A_k) < 0\) \\
 \dots indifinit, sonst. \\ \\
-\text{\scshape Definitheit der Hesse-Matrix} \\
+\text{\scshape \underbar{Definitheit der Hesse-Matrix}} \\
 Definiere die Menge der kritischen Stellen von \(f\) als \(K(f) := \grad_f^\leftarrow(0_{\R^n})\). \\
 Es gilt für alle \(v \in K(f)\): \\
 1) \(\He_f(v)\) positiv definit \(\Longrightarrow v \in \LMIN(f)\) \\
 2) \(\He_f(v)\) negativ definit \(\Longrightarrow v \in \LMAX(f)\) \\
 3) \(\He_f(v)\) indifinit \(\Longrightarrow v \not\in \text{\scshape Lext}(f)\) \\ \\
-\text{\scshape Definitheit einer \(2\times 2\)-Matrix} \\
+\text{\scshape \underbar{Definitheit einer \(2\times 2\)-Matrix}} \\
 Definiere \(A := \begin{bmatrix}
     a & b \\ b & c
 \end{bmatrix}\) für \(a,b,c \in \R\). Dann gilt:\\
@@ -170,7 +176,7 @@ Definiere \(A := \begin{bmatrix}
 3) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\)
 \subsection*{Stochastik}
 \subsubsection*{Mathematische Modellierung des Zufalls}
-\text{\scshape \(\sigma\)-Algebra, Eventraum} \\
+\text{\scshape \underbar{\(\sigma\)-Algebra, Eventraum}} \\
 Sei \(\Omega \ne \emptyset\) Menge und \(\mathcal E \subseteq \mathcal P(\Omega)\). Für \(A \in \mathcal P(\Omega)\) definieren wir \(A^c := \Omega \setminus A\). \\
 Wir nennen \(\mathcal E\) eine \(\sigma\)-Algebra über \(\Omega\), wenn gilt:\\
 1) \(\Omega \in \mathcal E\) \\
@@ -178,9 +184,9 @@ Wir nennen \(\mathcal E\) eine \(\sigma\)-Algebra über \(\Omega\), wenn gilt:\\
 3) \(\forall (A_i)_i \in \mathcal S(\mathcal E){:} \bigcup_i A_i \in \mathcal E\)\\
 Wir nennen \((\Omega, \mathcal E)\) \textbf{Eventraum} und \(\Omega\) \textbf{Ergebnisraum}. \\
 Die Elemente von \(\mathcal E\) nennen wir \textbf{Event} und die Elemente von \(\Omega\) \textbf{Ergebnis}. \\ Einen E'Raum nennen wir diskret, wenn \(\Omega\) abzählbar ist \\ \\
-\text{\scshape Beispiele} \\
+\text{\scshape \underbar{Beispiele}} \\
 Für \(\Omega\) ist \(\{\emptyset, \Omega\}\) \(\sigma\)-Algebra über \(\Omega\). Dann ist \((\Omega, \{\emptyset, \Omega\})\) Eventraum, genau wie \((\Omega, \mathcal P(\Omega))\) \pagebreak \\
-\text{\scshape Wahrscheinlichkeitsmaß} \\
+\text{\scshape \underbar{Wahrscheinlichkeitsmaß}} \\
 Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathcal E}{\longrightarrow}{[0,1]}\), dann nennen wir \(\mathbb P\) Wahrscheinlichkeitsmaß auf \((\Omega, \mathcal E)\), wenn gilt:\\
 1) \(\mathbb P(\Omega) = 1\) \\
 2) \(\forall(A_i)_i \in \mathcal S(\mathcal E), \bigcap_iA_i = \emptyset\QDp \mathbb P\left(\bigcup_iA_i\right) = \sum_{i}\mathbb P(A_i)\) \\
@@ -215,7 +221,7 @@ Eines solcher W'Maße ist das Uniforme mit \(\Pro(\omega) := \frac{1}{|\Omega|}\
     \(o := \frac{p}{1-p}\) sind die odds für \(p\) Wahrscheinlichkeit. \\
     \(p := \frac{o}{o+1}\) ist die Wahrscheinlichkeit für \(o\) odds.
 }
-\textsc{\underline{Unabhängigkeit}}
+\textsc{\underbar{Unabhängigkeit}}\\
     Sei \((A_i)_{i \in I}\) eine endliche Familie von Events. Wir nennen diese unabhängig, wenn gilt:\\ \(\forall I'\subseteq I\QDp \Pro\left(\bigcap_{i \in I'}A_i\right) = \prod_{i \in I'}\Pro(A_i)\)
 \subsubsection*{Zufallsvariablen über diskreten Wahrscheinlichkeitsräumen}
 \subsubsubsection{Zufallsvariablen}{
@@ -225,7 +231,7 @@ Eines solcher W'Maße ist das Uniforme mit \(\Pro(\omega) := \frac{1}{|\Omega|}\
 \subsubsubsection{Events über Zufallsvariablen}{
     Sei \(\phi\) ein logischer Ausdruck der Form: \textquote{\({X \in U} / {X \le u} / {X = u}\)}, dann bezeichnen wir damit das Event, für das für \(X(\omega)\) der Ausdruck gilt für alle \(\omega \in \Omega\). Somit lassen sich Events mit ZV elegant konstruieren, und es lassen sich Wahrscheinlichkeiten wie \(\Pro(X = u) = \Pro(\{{\omega \in \Omega} \mid {X(\omega) = u}\})\) berechnen.
 }
-\textsc{\underline{Gesetze der neuen Events}} \\
+\textsc{\underbar{Gesetze der neuen Events}} \\
     1) \(\Pro(\bot \mid \beta) = 0 \wedge \Pro(\top|\beta) = 1\) \\
     2) \(\Pro(\neg\phi \mid \beta) = 1 - \Pro(\phi|\beta)\) \\
     3) \(\Pro(\phi {\vee} \psi \mid \beta) = \Pro(\phi| \beta) + \Pro(\psi| \beta) - \Pro(\phi {\wedge} \psi| \beta)\)
@@ -254,6 +260,9 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     0 & \text{sonst}
 \end{cases}\)
 }
+\subsubsubsection{Geometrische Verteilung}{
+    Sei \(p \in ]0,1[\), wir nennen eine ZV \(X\) geometrisch verteilt, wenn gilt: \(\Pro(X {=} k) = (1-p)^kp\)
+}
 \subsubsubsection{Marginalisierung Beispiel}{
     Sei \((X_1, X_2) \sim \Unif(\{(0,1), (0,2), (2,1)\})\). Dann gilt:\\
     \(\Pro(X_1 = 0)\\ = \Pro((X_1 = 0) \wedge (X_2 = 1 \vee X_2 = 2))\\ = \Pro((X_1,X_2) = (0,1) \vee (X_1,X_2) = (0,2))\\ = \Pro((X_1,X_2) = (0,1)) + \Pro((X_1,X_2) = (0,2))\\ = \frac{2}{3}\)
@@ -272,19 +281,19 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Wir sagen \((X_i)_{i \in I} \sim \mathcal V\) i.d.d. für eine Verteilung \(V\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \\
     Unabhängige ZV 
 }
-\textsc{\underline{Summe unabhängiger Bernoulli-ZV}}\\
+\textsc{\underbar{Summe unabhängiger Bernoulli-ZV}}\\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., und definiere \(S := \sum_{i=1}^{n}X_i\), dann gilt für \(k \in [n]\):
     \[\Pro(S {=} k) = \binom{n}{k}p^k(1-p)^{n-k}\]
     \pagebreak \\
-\textsc{\underline{Binominalverteilung}} \\
+\textsc{\underbar{Binominalverteilung}} \\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., dann nennen wir \(X\) binomialverteilt und schreiben:
     \[(X_1, \dots, X_n) \sim \Ber(p) \text{ i.i.d.} \Longrightarrow \sum_{i=1}^{n}X_i \sim \Bin(n,p)\]
 \subsubsection*{Erwartungswert und Varianz von ZV über diskreten W'räumen}
 \subsubsubsection{Erwartungswert}{
     Sei \(X\) ein ZV. \(X\) hat einen Erwartungswert, genau dann, wenn \(\Ew := \sum_{u \in \R}u \cdot \Pro(X {=} u)\) definiert ist bzw. summierbar ist für \(|u|\) statt \(u\). Offenbar gilt: \(\Ew(X) = \sum_{\omega \in \Omega}X(\omega) \cdot \Pro(\omega)\).
 }
-\subsubsubsection{Erwartungswert von Verteilungen}{
-    Es gilt: \(\Ew(\Ber(p)) = p\) und \(\Ew(\Bin(n,p)) = n\cdot p\). Des Weiteren gilt: \(|\Ew(X)| \le \Ew(|X|)\)
+\subsubsubsection{Erwartungswerte von Verteilungen}{
+    Es gilt: \(\Ew(\Ber(p)) = p\), \(\Ew(\Bin(n,p)) = n\cdot p\) und \(\Ew(\Geo(p)) = \frac{1-p}{p}\). Des Weiteren gilt: \(|\Ew(X)| \le \Ew(|X|)\)
 }
 \subsubsubsection{Law of the unconscious statistician (LOTUS)}{
     Sei \(X\) ZV oder endliche Familie davon und sei \(f\QDp \supp(X) \longrightarrow \R\). Dann hat die ZV \(f \circ X\) einen EW genau dann, wenn \(\sum_{u \in R^I}|f(u)| \cdot \Pro(X = u) < +\infty\) gilt. \\
@@ -296,7 +305,7 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
 \subsubsubsection{Varianz}{
     Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). \(X\) hat genau dann Varianz, wenn \(X\) EW hat. Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\).\\
     Die Varianz kann auch so berechnet werden: \(\Var(X) = \Ew(X^2) - \Ew(X)^2\)\\
-    Es gilt: \(\Var(\Ber(p)) = p(1-p)\) und \(\Var(\Bin(n,p)) = np(1-p)\)\\
+    Es gilt: \(\Var(\Ber(p)) = p(1-p)\), \(\Var(\Bin(n,p)) = np(1-p)\) und \(\Var(\Geo(p)) = \frac{1-p}{p^2}\)\\
     Für \((X_i)_{i\in I}\) eindliche Familie von ZV, die Paarweise unkorreliert sind und Varianz haben, dann gilt:\\
     \(\Var(\sum_{i \in I}X_i) = \sum_{i \in I}\Var(X_i)\).
 }
@@ -304,7 +313,7 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Seien \(X,Y\) ZV mit Varianz. Definiere die Kovarianz \(\Cov(X,Y) := \Ew(X{\cdot}Y) - \Ew(X){\cdot}\Ew(Y)\). \\
     Wir nennen solche ZV unkorreliert, wenn \(\Cov(X,Y) = 0\) gilt. Offenbar folgt dies aus \((X,Y)\) unabhängig.
 }
-\textsc{\underline{Abschätzungen}}\\
+\textsc{\underbar{Abschätzungen}}\\
     Markow-Ungleichung: Sei \(X\) ZV mit EW, sei \(\Pro(X \ge 0)\) = 1 und \(a > 0\). Dann gilt \(\Pro(X \ge a) \le \frac{\Ew(X)}{a}\).\\
     Tschebyschow-Ungleichung: Sei \(X\) ZV mit Varianz und \(a > 0\), dann gilt:\\ \(\Pro(|X-\Ew(X)| \ge a) \le \frac{\Var(X)}{a^2}\) und \(\Pro(X-\Ew(X) \ge a) \le \frac{\Var(X)}{\Var(X) + a^2}\)\\
     Sei \(\mu := \Ew(X), \sigma := \sigma(X), k > 0\), dann gilt nach Tschebyschow:\\ \(\Pro(\mu - k\sigma < X < \mu + k\sigma) = \Pro(|X-\mu| < k\sigma) \ge 1 {-} \frac{1}{k^2}\)
@@ -313,7 +322,7 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \subsubsubsection{Allgemeine ZV}{
     Wir nennen \(X\QDp \Omega \longrightarrow \R\) eine ZV, wenn gilt: \(\forall u \in \R: [X \le u] \in \E\)
 }
-\textsc{\underline{Borellmengen}}
+\textsc{\underbar{Borellmengen}}
     Um sinnvolle Events für eine allgemeine ZV zu konstruieren, definieren wir eine \(\sigma\)-Algebra, die nicht die Potenzmenge von \(\R\) ist. Für \(\mathcal G := \{]{-}\infty, u[ \mid u \in \R\}\), was selbst schon eine gültige \(\sigma\)-Algebra ist, definieren wir \(\mathcal B := \bigcap_{\mathcal G \subseteq \E' \subseteq \mathcal P(\R) \wedge \E \text{ ist \(\sigma\)-Algebra über \(\R\)}}\E'\). \(\mathcal B\) ist \(\sigma\)-Algebra.\\
     Folgendes sind Borellmengen: Intervalle, abzählbare Mengen, Offene Mengen, Vereinigungen abzählbar vieler Borellmengen, Schnitte abzählbar vieler Borellmengen, Komplemente von Borellmengen. \\
     Außerdem ist das kartesische Produkt über Borellmengen wieder Borellmenge, somit übertragen sich auch noch äquivalente Definitionen und Regeln für Folgen von ZV, welche über Folgen von Borellmengen agieren.
@@ -331,14 +340,14 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
     Es gilt außerdem wenn \(F_X\) stetig ist: \(\Pro(X{=}u) = 0\) für alle \(u \in \R\) und \(\Pro(X {\in} I) = \Pro(X {\in} I^o)\) für \(I^o\) das offene Intervall von \(I\).\\
     Man kann eine CDF auch aus der PMF definieren mit: \(\R \longrightarrow [0,1], u \mapsto \sum_{\xi \le u}\rho_X(\xi)\), offenbar sind ZV, die solch eine PMF bzw. CDF haben dann immer diskret, wie wenn die Bildmenge von \(X\) abzählbar ist.
 }
-\textsc{\underline{Unabhängigkeit allgemeiner ZV}}\\
+\textsc{\underbar{Unabhängigkeit allgemeiner ZV}}\\
     Der Begriff der Unabhängigkeit überträgt sich für allgemeine ZV, nur, dass wir nicht mehr alle Teilmengen sondern nur noch alle Borellmengen betrachten und unendliche ZV-Familien sind erlaubt. \\ \\
 \subsubsubsection{Wahrscheinlichkeitsdichtefunktionen}{
     Sei \(\rho\QDp \R \longrightarrow \R_{\ge 0}\) integrierbar über alle kompakten Intervalle, sodass \(\int_{-\infty}^{+\infty}\rho = 1\) gilt, dann nennen wir \(\rho\) PDF oder auch Wahrscheinlichkeitsdichtefunktion.\\
     Ist \(\rho\) PDF, dann ist \(F\QDp \R \longrightarrow [0,1], u \mapsto \int_{-\infty}^{u} \rho\) eine stetige CDF. \\
     Hat die ZV \(X\) eine PDF \(\rho\), dann gilt: \(\Pro(a \le X \le b) = \int_{a}^{b}\rho\). Beachte hier, dass da die Punktevents keine Wahrscheinlichkeit haben, deswegen es egal ist, ob man \(<\) statt \(\le\) verwendet etc.
 }
-\textsc{\underline{Erwartungswert via PDF, LOTUS für allgemeine ZV}}\\
+\textsc{\underbar{Erwartungswert via PDF, LOTUS für allgemeine ZV}}\\
     Sei \(X\) allgemeine ZV mit PDF \(\rho\), dann hat \(X\) genau dann einen EW, wenn \(\int_{-\infty}^{+\infty}|t| {\cdot} \rho(t) \text{ d}t < +\infty\) gilt, dann gilt:
     \[\Ew(X) = \int_{-\infty}^{+\infty}t \cdot \rho(t)\text{ d}t\]
     Sei \(f\QDp D \longrightarrow \R\) stetig mit \(\img(X) \subseteq D \subseteq \R\), dann hat \(f \circ X\) gena dann einen EW, wenn \(\int_{-\infty}^{+\infty}|f| {\cdot} \rho < +\infty\) gilt, dann gilt:
@@ -359,5 +368,9 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \subsubsubsection{Eigentschaften der Normalverteilung}{
     Sei \(X \sim \Norm(\mu, \sigma^2)\) und \(\delta \in \R\), \(\lambda \ne 0\). Dann gilt: \(\lambda X + \delta \sim \Norm(\lambda\mu + \delta, \lambda^2\sigma^2)\). Es gilt auch: \(\Ew(X) = \mu\) und \(\Var(X) = \sigma^2\).\\
     Für \((X_i)_{i \in I}\) endliche Familie an ZV mit \(X_i \sim \Norm(\mu_i, \sigma_i^2)\) i.d.d. gilt: \({\sum_{i\in I}} {X_i} \gap \sim \gap {\Norm}{\left(\sum_{i\in I}\mu_i, \sum_{i\in I}\sigma_i^2\right)}\).
+}
+\subsubsubsection{Gedächtnislosigkeit}{
+    Sei \(X\) eine verteilte ZV. Wir nennen die Verteilung gedächtnislos, wenn gilt: \(\forall n,k > 0\QDp \Pro(X\ge n + k \mid X \ge k) = \Pro(X \ge k)\)\\
+    Beweis für \(X \sim \Geo(p)\): Es gilt: \( \Pro(X \ge n + k \mid X \ge n) = \frac{\Pro(X \ge n + k \wedge X \ge n)}{\Pro(X \ge n)} = \frac{\Pro(X \ge n + k)}{\Pro(X \ge n)} = \frac{(1-p)^{n+k-1}}{(1^-p)^{n-1}} = (1-p)^k = \Pro(X \ge k)\).
 }
 \end{document}
