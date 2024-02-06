@@ -55,7 +55,9 @@
     \(\R_{> 0}\) & \(\log_b(x)\) & \(\frac{x\ln(x) - x}{\ln(b)}\) & \(b \in \R_{>0} \setminus \{1\}\) \\
     \(]\smi 1, 1[\) & \(\frac{1}{\sqrt{1-x^2}}\) & arcsin\((x)\) & \\
     \(\R\) & \(\frac{1}{1+x^2}\) & arctan\((x)\) & 
-\end{tabular}
+\end{tabular} \\
+\textsc{\underbar{Logarithmus und Exponentialfunktion}} \\
+    Es gilt \(\ddx\log_a(x) = \ddx\frac{\ln(x)}{\ln(a)} = \frac{1}{x \cdot \ln(a)}\) und \(\ddx a^x = e^{\ln(a) \cdot x} = \ln(a) \cdot e^{\ln(a) \cdot x} = \ln(a) \cdot a^x\)
 \subsubsection*{Uneigentliche Integrale}
 \text{\scshape \underbar{Integral über \(x^{-\alpha}\)}} \\
 1) \(\forall \alpha > 1: \int_{1}^{+\infty} x^{-\alpha} \text d x = \frac{1}{\alpha - 1}\). \puffer Für \(\alpha \in {]0{,}1]}\) divergiert das Integral. \\
@@ -138,7 +140,7 @@ Ist \(f\) differenzierbar in \(v\), dann ist \(\J_f(v)\) Ableitung von \(f\), ab
 \text{\scshape \underbar{Totale Differenzierbarkeit aus Partieller Differenzierbarkeit}} \\
 Ist \(f\) vollständig partiell differenzierbar und alle Ableitung sind stetig, dann ist \(f\) total differenzierbar. \\ \\
 \text{\scshape \underbar{\(\Co\)-Funktionen und \(\Ct\)-Funktionen}} \\
-Wir nennen \(f: \Omega \longrightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar. \\
+Wir nennen \(f: \Omega \longrightarrow \R^d\) eine \(\Co\)-Funktion, wenn sie vollständig stetig partiell differenzierbar ist. Somit ist also eine \(\Co\)-Funktion total differenzierbar.
 \(f\) ist \(\Co\)-Funktion, wenn all ihre Komponentenfunktionen aus Kombinationen von Projektionen stetiger differenzierbaren eindimensionalen Funktionen bestehen. \\
 Wir nennen \(f: \Omega \longrightarrow \R\) eine \(\Ct\)-Funktion, wenn sie eine \(\Co\)-Funktion ist, und \(\forall i \in [n]: \partial_if\) stetig partiell differenzierbar ist. \\
 Dies ist äquivalent dazu, dass \(\grad_f\) eine \(\Co\)-Funktion ist. \\Die partielle
@@ -322,7 +324,7 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \subsubsubsection{Allgemeine ZV}{
     Wir nennen \(X\QDp \Omega \longrightarrow \R\) eine ZV, wenn gilt: \(\forall u \in \R: [X \le u] \in \E\)
 }
-\textsc{\underbar{Borellmengen}}
+\textsc{\underbar{Borellmengen}} \\
     Um sinnvolle Events für eine allgemeine ZV zu konstruieren, definieren wir eine \(\sigma\)-Algebra, die nicht die Potenzmenge von \(\R\) ist. Für \(\mathcal G := \{]{-}\infty, u[ \mid u \in \R\}\), was selbst schon eine gültige \(\sigma\)-Algebra ist, definieren wir \(\mathcal B := \bigcap_{\mathcal G \subseteq \E' \subseteq \mathcal P(\R) \wedge \E \text{ ist \(\sigma\)-Algebra über \(\R\)}}\E'\). \(\mathcal B\) ist \(\sigma\)-Algebra.\\
     Folgendes sind Borellmengen: Intervalle, abzählbare Mengen, Offene Mengen, Vereinigungen abzählbar vieler Borellmengen, Schnitte abzählbar vieler Borellmengen, Komplemente von Borellmengen. \\
     Außerdem ist das kartesische Produkt über Borellmengen wieder Borellmenge, somit übertragen sich auch noch äquivalente Definitionen und Regeln für Folgen von ZV, welche über Folgen von Borellmengen agieren.
@@ -371,6 +373,11 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 }
 \subsubsubsection{Gedächtnislosigkeit}{
     Sei \(X\) eine verteilte ZV. Wir nennen die Verteilung gedächtnislos, wenn gilt: \(\forall n,k > 0\QDp \Pro(X\ge n + k \mid X \ge k) = \Pro(X \ge k)\)\\
-    Beweis für \(X \sim \Geo(p)\): Es gilt: \( \Pro(X \ge n + k \mid X \ge n) = \frac{\Pro(X \ge n + k \wedge X \ge n)}{\Pro(X \ge n)} = \frac{\Pro(X \ge n + k)}{\Pro(X \ge n)} = \frac{(1-p)^{n+k-1}}{(1^-p)^{n-1}} = (1-p)^k = \Pro(X \ge k)\).
+    Beweis für \(X \sim \Geo(p)\): Es gilt: \( \Pro(X \ge n + k \mid X \ge n) = \frac{\Pro(X \ge n + k \wedge X \ge n)}{\Pro(X \ge n)} = \frac{\Pro(X \ge n + k)}{\Pro(X \ge n)} = \frac{(1-p)^{n+k-1}}{(1^-p)^{n-1}} = (1-p)^k = \Pro(X \ge k)\). \\
+    Außerdem ist die Geometrische Verteilung gedächtnislos \gedanke ich bin das auch.
+}
+\subsubsection*{Konfidenzintervalle in Normalverteilungsmodellen}
+\subsubsubsection{Statistisches Modell}{
+    \todo
 }
 \end{document}
