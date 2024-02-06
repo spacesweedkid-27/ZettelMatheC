@@ -173,9 +173,10 @@ Es gilt für alle \(v \in K(f)\): \\
 Definiere \(A := \begin{bmatrix}
     a & b \\ b & c
 \end{bmatrix}\) für \(a,b,c \in \R\). Dann gilt:\\
-1) \(A\) positiv definit \(\Longleftrightarrow a > 0 \wedge \det(A) > 0\). \\
-2) \(A\) negativ definit \(\Longleftrightarrow a < 0 \wedge \det(A) > 0\). \\
-3) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\)
+1) \(\det(A) = ac-b^2\) \\
+2) \(A\) positiv definit \(\Longleftrightarrow a > 0 \wedge \det(A) > 0\). \\
+3) \(A\) negativ definit \(\Longleftrightarrow a < 0 \wedge \det(A) > 0\). \\
+4) \(A\) indefinit \(\Longleftrightarrow \det(A) < 0\)
 \subsection*{Stochastik}
 \subsubsection*{Mathematische Modellierung des Zufalls}
 \text{\scshape \underbar{\(\sigma\)-Algebra, Eventraum}} \\
@@ -187,7 +188,7 @@ Wir nennen \(\mathcal E\) eine \(\sigma\)-Algebra über \(\Omega\), wenn gilt:\\
 Wir nennen \((\Omega, \mathcal E)\) \textbf{Eventraum} und \(\Omega\) \textbf{Ergebnisraum}. \\
 Die Elemente von \(\mathcal E\) nennen wir \textbf{Event} und die Elemente von \(\Omega\) \textbf{Ergebnis}. \\ Einen E'Raum nennen wir diskret, wenn \(\Omega\) abzählbar ist \\ \\
 \text{\scshape \underbar{Beispiele}} \\
-Für \(\Omega\) ist \(\{\emptyset, \Omega\}\) \(\sigma\)-Algebra über \(\Omega\). Dann ist \((\Omega, \{\emptyset, \Omega\})\) Eventraum, genau wie \((\Omega, \mathcal P(\Omega))\) \pagebreak \\
+Für \(\Omega\) ist \(\{\emptyset, \Omega\}\) \(\sigma\)-Algebra über \(\Omega\). Dann ist \((\Omega, \{\emptyset, \Omega\})\) Eventraum, genau wie \((\Omega, \mathcal P(\Omega))\) \\ \\
 \text{\scshape \underbar{Wahrscheinlichkeitsmaß}} \\
 Sei \((\Omega, \mathcal E)\) Eventraum. Sei eine Funktion \({\mathbb P}:{\mathcal E}{\longrightarrow}{[0,1]}\), dann nennen wir \(\mathbb P\) Wahrscheinlichkeitsmaß auf \((\Omega, \mathcal E)\), wenn gilt:\\
 1) \(\mathbb P(\Omega) = 1\) \\
@@ -265,6 +266,9 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
 \subsubsubsection{Geometrische Verteilung}{
     Sei \(p \in ]0,1[\), wir nennen eine ZV \(X\) geometrisch verteilt, wenn gilt: \(\Pro(X {=} k) = (1-p)^kp\)
 }
+\subsubsubsection{Poisson-Verteilung}{
+    Sei \(\lambda > 0\), wir nennen eine ZV \(X\) poisson-verteilt mit EW \(\lambda\), wenn gilt: \(\Pro(X {=} k) = \frac{\lambda^k}{k!}e^{-\lambda}\)
+}
 \subsubsubsection{Marginalisierung Beispiel}{
     Sei \((X_1, X_2) \sim \Unif(\{(0,1), (0,2), (2,1)\})\). Dann gilt:\\
     \(\Pro(X_1 = 0)\\ = \Pro((X_1 = 0) \wedge (X_2 = 1 \vee X_2 = 2))\\ = \Pro((X_1,X_2) = (0,1) \vee (X_1,X_2) = (0,2))\\ = \Pro((X_1,X_2) = (0,1)) + \Pro((X_1,X_2) = (0,2))\\ = \frac{2}{3}\)
@@ -277,16 +281,14 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
         0 & \text{sonst}
     \end{cases}\]
 }
-\subsubsubsection{Unabhängigkeit}{
+\textsc{\underbar{Unabhängigkeit}}
     Wir nennen eine endliche Familie von ZV \(X = (X_i)_{i\in I}\) unabhängig, wenn gilt:
     \[\forall(U_i)_{i\in I} \in \mathcal P(\R)^I\QDp \Pro\left(\bigwedge_{i \in I}(X_i \in U_i)\right) = \prod_{i\in I}\Pro(X_i \in U_i)\]
-    Wir sagen \((X_i)_{i \in I} \sim \mathcal V\) i.d.d. für eine Verteilung \(V\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \\
-    Unabhängige ZV 
-}
+    Wir sagen \((X_i)_{i \in I} \sim \mathcal D\) i.d.d. für eine Verteilung \(\mathcal D\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \pagebreak \\
 \textsc{\underbar{Summe unabhängiger Bernoulli-ZV}}\\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., und definiere \(S := \sum_{i=1}^{n}X_i\), dann gilt für \(k \in [n]\):
     \[\Pro(S {=} k) = \binom{n}{k}p^k(1-p)^{n-k}\]
-    \pagebreak \\
+    \\ \\
 \textsc{\underbar{Binominalverteilung}} \\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., dann nennen wir \(X\) binomialverteilt und schreiben:
     \[(X_1, \dots, X_n) \sim \Ber(p) \text{ i.i.d.} \Longrightarrow \sum_{i=1}^{n}X_i \sim \Bin(n,p)\]
@@ -295,7 +297,7 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Sei \(X\) ein ZV. \(X\) hat einen Erwartungswert, genau dann, wenn \(\Ew := \sum_{u \in \R}u \cdot \Pro(X {=} u)\) definiert ist bzw. summierbar ist für \(|u|\) statt \(u\). Offenbar gilt: \(\Ew(X) = \sum_{\omega \in \Omega}X(\omega) \cdot \Pro(\omega)\).
 }
 \subsubsubsection{Erwartungswerte von Verteilungen}{
-    Es gilt: \(\Ew(\Ber(p)) = p\), \(\Ew(\Bin(n,p)) = n\cdot p\) und \(\Ew(\Geo(p)) = \frac{1-p}{p}\). Des Weiteren gilt: \(|\Ew(X)| \le \Ew(|X|)\)
+    Es gilt: \(\Ew(\Ber(p)) = p\), \(\Ew(\Bin(n,p)) = n\cdot p\), \(\Ew(\Pois(\lambda)) = \lambda\) und \(\Ew(\Geo(p)) = \frac{1-p}{p}\). Des Weiteren gilt: \(|\Ew(X)| \le \Ew(|X|)\)
 }
 \subsubsubsection{Law of the unconscious statistician (LOTUS)}{
     Sei \(X\) ZV oder endliche Familie davon und sei \(f\QDp \supp(X) \longrightarrow \R\). Dann hat die ZV \(f \circ X\) einen EW genau dann, wenn \(\sum_{u \in R^I}|f(u)| \cdot \Pro(X = u) < +\infty\) gilt. \\
@@ -305,9 +307,9 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
     Für \(X\) ZV oder Familie davon mit EW und \(\lambda \in \R\) oder gleichlange Familie davon gilt: \(\Ew(\lambda \cdot X) = \lambda \cdot \Ew(X)\) es gilt auch: \(\Ew(X + \lambda) = \Ew(X) + \lambda\)
 }
 \subsubsubsection{Varianz}{
-    Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). \(X\) hat genau dann Varianz, wenn \(X\) EW hat. Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\).\\
+    Wir definieren die Varianz einer ZV \(X\) als: \(\Var(X) := \Ew((X-\Ew(X))^2)\). Es gilt: \(\Var(\lambda X + a) = \lambda^2 \cdot \Var(X)\).\\
     Die Varianz kann auch so berechnet werden: \(\Var(X) = \Ew(X^2) - \Ew(X)^2\)\\
-    Es gilt: \(\Var(\Ber(p)) = p(1-p)\), \(\Var(\Bin(n,p)) = np(1-p)\) und \(\Var(\Geo(p)) = \frac{1-p}{p^2}\)\\
+    Es gilt: \(\Var(\Ber(p)) = p(1-p)\), \(\Var(\Bin(n,p)) = np(1-p)\), \(\Var(\Pois(\lambda)) = \lambda\) und \(\Var(\Geo(p)) = \frac{1-p}{p^2}\)\\
     Für \((X_i)_{i\in I}\) eindliche Familie von ZV, die Paarweise unkorreliert sind und Varianz haben, dann gilt:\\
     \(\Var(\sum_{i \in I}X_i) = \sum_{i \in I}\Var(X_i)\).
 }
