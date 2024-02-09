@@ -69,7 +69,8 @@ Konvergiert das uneigentliche Integral über \(g\), dann konvergiert das uneigen
 Warnung nicht im Skript, trotzdem leichtes Argument. \\
 Sei \(p \in \Z\) und \(f : [p, \infty[ \longrightarrow \R_{> 0}\) monoton fallend. \\
 Dann ist \(f\) integrierbar genau dann, wenn \(\sum_{n = p}^{\infty} f(n)\) konvergiert. \\
-Zur Motivation betrachte \(\sum_{n = p}^{\infty} f(n)\) als obere Schranke und Annäherung des Integrals mittels Riemann Summe mit gleichmäßiger Feinheit 1.
+Zur Motivation betrachte \(\sum_{n = p}^{\infty} f(n)\) als obere Schranke und Annäherung des Integrals mittels Riemann Summe mit gleichmäßiger Feinheit 1.\\
+Tipp für \(\int_{-\infty}^{+\infty}\): Betrachte oberes und unteres Integral seperat und berechne \(\lim_{b \rightarrow +\infty} \int_{0}^{b}\) bzw. andersrum.
 \subsection*{Analytische Grundstrukturen}
 \subsubsection*{Metrische Räume}
 \text{\scshape \underbar{Metrik}} \\
@@ -281,10 +282,10 @@ wenn \(\forall u \in M: \Pro(X = u) = \frac{1}{|M|}\) gilt. Folgendes ist die PM
         0 & \text{sonst}
     \end{cases}\]
 }
-\textsc{\underbar{Unabhängigkeit}}
+\textsc{\underbar{Unabhängigkeit}} \\
     Wir nennen eine endliche Familie von ZV \(X = (X_i)_{i\in I}\) unabhängig, wenn gilt:
     \[\forall(U_i)_{i\in I} \in \mathcal P(\R)^I\QDp \Pro\left(\bigwedge_{i \in I}(X_i \in U_i)\right) = \prod_{i\in I}\Pro(X_i \in U_i)\]
-    Wir sagen \((X_i)_{i \in I} \sim \mathcal D\) i.d.d. für eine Verteilung \(\mathcal D\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \pagebreak \\
+    Wir sagen \((X_i)_{i \in I} \sim \mathcal D\) i.i.d. für eine Verteilung \(\mathcal D\), wenn wir meinen, dass alle \(X_i\) unabhängig aber gleich verteilt sind. \pagebreak \\
 \textsc{\underbar{Summe unabhängiger Bernoulli-ZV}}\\
     Sei \(p \in [0,1]\) und \(X = (X_1, \dots, X_n) \sim \Ber(p)\) i.i.d., und definiere \(S := \sum_{i=1}^{n}X_i\), dann gilt für \(k \in [n]\):
     \[\Pro(S {=} k) = \binom{n}{k}p^k(1-p)^{n-k}\]
@@ -356,21 +357,26 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
     \[\Ew(X) = \int_{-\infty}^{+\infty}t \cdot \rho(t)\text{ d}t\]
     Sei \(f\QDp D \longrightarrow \R\) stetig mit \(\img(X) \subseteq D \subseteq \R\), dann hat \(f \circ X\) gena dann einen EW, wenn \(\int_{-\infty}^{+\infty}|f| {\cdot} \rho < +\infty\) gilt, dann gilt:
     \[\Ew(f \circ X) = \int_{-\infty}^{+\infty}f \cdot \rho\]
-\subsubsubsection{Diverse Verteilungen}{
-    \textbf{\textit{Uniforme Verteilung}}: Seien \(a < b \in \R\), wir sagen eine ZV \(X\) hat uniforme Verteilung zwischen \(a\) und \(b\) und schreiben \(X \sim \Unif(a,b)\), wenn \(X\) folgende PDF hat:
-    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{1}{b-a}\), wenn \(t \in ]a,b[\) sonst \(0\). Es gilt: \(\Ew(\Unif(a,b)) = \frac{a+b}{2}\) und \(\Var(\Unif(a,b)) = \frac{(b-a)^2}{12}\) \\
-    \textbf{\textit{Exponentialverteilung}}: Sei \(\lambda > 0\), wir sagen eine ZV \(X\) hat Exponentialverteilung mit Rate \(\lambda\), wenn folgende Funktion die PDF von \(X\) ist:
-    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \lambda e^{-\lambda t}\), wenn \(t \ge 0\) und sonst \(0\). Es gilt: \(\Ew(\Exp(\lambda)) = \lambda^{-1}\) und \(\Var(\Exp(\lambda)) = \lambda^{-2}\)\\
-    \textbf{\textit{Pareto-Verteilung}}: Sei \(a > 0\), wir sagen eine ZV \(X\) hat Pareto-Verteilung, wenn \(X\) folgende PDF hat:
-    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{a}{t^{a+1}}\), wenn \(t \ge 1\) und sonst \(0\). Es gilt: \(\Ew(\text{Par}(a)) = \frac{a}{a-1}\), wenn \(a > 1\) und wenn \(a > 2\) gilt: \(\Var(\text{Par}(a)) = \frac{a}{(a-1)^2(a-2)}\) \\
-    \textbf{\textit{Cauchy-Verteilung}}: Sei \(t_0 \in \R, \gamma > 0\), wir sagen \(X\) hat Cauchy-Verteilung mit Lageparameter \(t_0\) und Skalenparameter \(\gamma\), wenn \(X\) folgende PDF hat:
-    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \left(\pi \gamma \left(1+\left(\frac{t-t_0}{\gamma}\right)^2\right)\right)^{-1}\). Die Cauchy-Verteilung hat keinen EW weder Varianz. \\
-    \textbf{\textit{Normal-Verteilung}}: Sei \(\mu \in \R\) und \(\sigma > 0\). Wir sagen \(X\) hat Normalverteilung mit EW \(\mu\) und Varianz \(\sigma^2\),\\
+\textsc{\underbar {Diverse Verteilungen}} \\
+    \textbf{Uniforme Verteilung}\\
+    Seien \(a < b \in \R\), wir sagen eine ZV \(X\) hat uniforme Verteilung zwischen \(a\) und \(b\) und schreiben \(X \sim \Unif(a,b)\), wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{1}{b-a}\), wenn \(t \in ]a,b[\) sonst \(0\). Es gilt: \(\Ew(\Unif(a,b)) = \frac{a+b}{2}\) und \(\Var(\Unif(a,b)) = \frac{(b-a)^2}{12}\). CDF: \(t \mapsto \frac{t-a}{b-a}\) im Falle \(t \in ]a,b[\) sonst links \(0\) und rechts \(1\). \\
+    \textbf{Exponentialverteilung}\\
+    Sei \(\lambda > 0\), wir sagen eine ZV \(X\) hat Exponentialverteilung mit Rate \(\lambda\), wenn folgende Funktion die PDF von \(X\) ist: \\
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \lambda e^{-\lambda t}\), wenn \(t \ge 0\) und sonst \(0\). Es gilt: \(\Ew(\Exp(\lambda)) = \lambda^{-1}\) und \(\Var(\Exp(\lambda)) = \lambda^{-2}\). CDF: \(t \mapsto 1 - e^{\smi \lambda t}\) \\
+    \textbf{Pareto-Verteilung}\\
+    Sei \(a > 0\), wir sagen eine ZV \(X\) hat Pareto-Verteilung, wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \frac{a}{t^{a+1}}\), wenn \(t \ge 1\) und sonst \(0\). Es gilt: \(\Ew(\text{Par}(a)) = \frac{a}{a-1}\), wenn \(a > 1\) und wenn \(a > 2\) gilt: \(\Var(\text{Par}(a)) = \frac{a}{(a-1)^2(a-2)}\). CDF: \(t \mapsto 1 - t^{-a}\) \\
+    \textbf{Cauchy-Verteilung}\\
+    Sei \(t_0 \in \R, \gamma > 0\), wir sagen \(X\) hat Cauchy-Verteilung mit Lageparameter \(t_0\) und Skalenparameter \(\gamma\), wenn \(X\) folgende PDF hat:
+    \(\rho \QDp \R \longrightarrow \R_{\ge 0}, t \mapsto \left(\pi \gamma \left(1+\left(\frac{t-t_0}{\gamma}\right)^2\right)\right)^{-1}\). Die Cauchy-Verteilung hat keinen EW oder Varianz. CDF: \(\frac{1}{2} + \frac{1}{\pi} \cdot \arctan\left(\frac{t-t_0}{\gamma}\right)\) \\
+    \textbf{Normalverteilung}\\
+    Sei \(\mu \in \R\) und \(\sigma > 0\). Wir sagen \(X\) hat Normalverteilung mit EW \(\mu\) und Varianz \(\sigma^2\),\\
     und schreiben \(X \sim \Norm(\mu, \sigma^2)\), wenn \(X\) folgende PDF hat:
     \(\rho \QDp \R \longrightarrow \R_{> 0}, t \mapsto \frac{e^{-\frac{1}{2}\cdot\left(\frac{t {-} \mu}{\sigma}\right)^2}}{\sqrt{2\pi} \cdot \sigma}\)
-    }
+\pagebreak \\
 \subsubsubsection{Eigentschaften der Normalverteilung}{
-    Sei \(X \sim \Norm(\mu, \sigma^2)\) und \(\delta \in \R\), \(\lambda \ne 0\). Dann gilt: \(\lambda X + \delta \sim \Norm(\lambda\mu + \delta, \lambda^2\sigma^2)\). Es gilt auch: \(\Ew(X) = \mu\) und \(\Var(X) = \sigma^2\).\\
+    Sei \(X \sim \Norm(\mu, \sigma^2)\) und \(\delta \in \R\), \(\lambda \ne 0\). Dann gilt: \(\lambda X + \delta \sim \Norm(\lambda\mu + \delta, \lambda^2\sigma^2)\), insbesondere \(\frac{X-\mu}{\sigma} \sim \Norm(0,1)\). Es gilt auch: \(\Ew(X) = \mu\) und \(\Var(X) = \sigma^2\).
     Für \((X_i)_{i \in I}\) endliche Familie an ZV mit \(X_i \sim \Norm(\mu_i, \sigma_i^2)\) i.d.d. gilt: \({\sum_{i\in I}} {X_i} \gap \sim \gap {\Norm}{\left(\sum_{i\in I}\mu_i, \sum_{i\in I}\sigma_i^2\right)}\).
 }
 \subsubsubsection{Gedächtnislosigkeit}{
@@ -378,8 +384,26 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
     Beweis für \(X \sim \Geo(p)\): Es gilt: \( \Pro(X \ge n + k \mid X \ge n) = \frac{\Pro(X \ge n + k \wedge X \ge n)}{\Pro(X \ge n)} = \frac{\Pro(X \ge n + k)}{\Pro(X \ge n)} = \frac{(1-p)^{n+k-1}}{(1^-p)^{n-1}} = (1-p)^k = \Pro(X \ge k)\). \\
     Außerdem ist die Geometrische Verteilung gedächtnislos \gedanke ich bin das auch.
 }
+\subsubsubsection{Konvergenz in Verteilung und Zentraler Grenzwertsatz}{
+    \textit{Konvergenz in Verteilung}: Sei \((X_n)_n\) beliebige Folge von ZV, wir sagen \((X_n)_n\) konvergiert in Verteilung gegen \(\mathcal D\), wenn gilt:\\
+    \(\forall u \in \R, \text{ sodass } F_{\mathcal D} \text{ stetig in } u\QDp \lim_{n}F_{X_n}(u) = F_{\mathcal D}(u)\) \\
+    \textit{Zentraler Grenzwertsatz}: Seien \(\mu \in \R, v > 0, (X_i)_{i \ge 1}\) Folge von i.i.d ZV über dem selben W'raum mit \(\Ew(X_i) = \mu\) und \(\Var(X_i) = v\) für alle \(i \ge 1\). Dann konvergiert \(\left(\frac{1}{\sqrt{n}}\sum_{i = 1}^{n}\frac{X_i - \mu}{\sqrt{v}}\right)_{n \ge 1}\) in Verteilung gegen \(\Norm(0,1)\).
+}
 \subsubsection*{Konfidenzintervalle in Normalverteilungsmodellen}
 \subsubsubsection{Statistisches Modell}{
-    \todo
+    Sei \(n,d \in \N_1, \Theta \subseteq \R^d\). Ein statistisches Modell ist eine Familie \((D_i^\vartheta)_{(\vartheta, i){\in}\Theta\times[n]}\) von Verteilungen für eine ZV.\\
+    Nach Existenzsatz existiert für jeden Parameter \(\vartheta \in \Theta\) eine Familie \((X_i^\vartheta)_{i \in [n]}\) von ZV mit folgenden Eigenschaften:\\
+    \(X^\vartheta\) ist unabhängig und \(\forall i \in [n]\QDp X_i^\vartheta \sim \D_i^\vartheta\). Um nicht immer den Existenzsatz anzuwenden schreiben wir \((X \sim \D^\vartheta_i)_{(\vartheta, i)\in\Theta\times[n]}\) um direkt sowohl die Familie der Verteilungen als auch die existierende Familie an unabhängigen ZV zu definieren. \\
+    Bei Modellen mit endlichen oder kleiner Anzahl an Verteilungen pro Paramenter \(\vartheta\) schreiben wir auch gerne Beispielweise \((X = (X_1 \dots X_n) \sim \D)_{\vartheta {\in} \Theta}\) oder \(\left(\begin{smallmatrix}
+        X = (X_1, \dots, X_n) \sim \D_1^\vartheta \\
+        Y = (Y_1, \dots, Y_n) \sim \D_2^\vartheta
+    \end{smallmatrix}\right)_{\vartheta \in \Theta}\) für die Verteilungen \(\D^\vartheta\) bzw. \(\D_1^\vartheta, \D_2^\vartheta\).\\
 }
+\subsubsubsection{Reele Kenngröße}{
+    Sei \((X \sim \D_i^\vartheta)_{(\vartheta, i)\in\Theta\times[n]}\) ein statistisches Modell und \(\tau \QDp \Theta \longrightarrow \R\). Wir nennen \(\tau\) eine reelle Kenngröße, wenn wir mittels \(\tau\) Parameter auf eine bestimmte Größe abbilden wollen. Zum Beispiel wäre \(\vartheta \mapsto \frac{b-a}{2}\) eine reele Kenngröße für uniform verteilte Modelle, wenn \((a,b) = \vartheta\) gilt.
+}
+\textsc{\underbar{Motivation}}
+    Sei \(u \in \R^n\) eine Stichprobe, dann wollen wir ein statistisches Modell \((X \sim \D_i^\vartheta)_{(\vartheta, i)\in\Theta\times[n]}\) so wählen, dass es ein \(\vartheta^*\) gibt, den sogenannten \textquote{wahren Parameter}, sodass \(u\) durch einen Prozess entstanden ist, der gut modelliert wird durch \(X^{\vartheta^*}\). Man würde gerne \(\vartheta^*\) und dann auch \(\tau(\vartheta^*)\) approximieren.
+\subsubsection*{Punktschätzung}
+\todo
 \end{document}
