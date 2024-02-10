@@ -405,5 +405,16 @@ Sei \((\Omega, \E, \Pro)\) W'Raum. \\ \\
 \textsc{\underbar{Motivation}}\\
     Sei \(u \in \R^n\) eine Stichprobe, dann wollen wir ein statistisches Modell \((X \sim \D_i^\vartheta)_{(\vartheta, i)\in\Theta\times[n]}\) so wählen, dass es ein \(\vartheta^*\) gibt, den sogenannten \textquote{wahren Parameter}, sodass \(u\) durch einen Prozess entstanden ist, der gut modelliert wird durch \(X^{\vartheta^*}\). Man würde gerne \(\vartheta^*\) und dann auch \(\tau(\vartheta^*)\) approximieren.
 \subsubsection*{Punktschätzung}
-\todo
+\subsubsubsection{Punktschätzer}{
+    Sei \((X \sim \D_i^\vartheta)_{(\vartheta, i)\in\Theta\times[n]}\) statistisches Modell und \(\tau\QDp \Theta \longrightarrow \R\) eine reelle Kenngröße. Ein Punktschätzer für \(\tau\) ist schlicht eine Funktion \(T\QDp \R^n \longrightarrow \R\). Um möglichst effiziente Punktschätzer zu konstruieren, werden wir einige Eigenschaften definieren.
+}
+\subsubsubsection{Erwartungstreue}{
+    Für alle \(\vartheta \in \Theta\) definieren wir den Bias von \(T\) für \(\tau\) als \(\B^{\vartheta, \tau}(T(X)) := \Ew^\vartheta(T(X)) - \tau(\vartheta)\), wenn der EW existiert. Wir nennen \(T\) einen erwartungstreuen oder unbiased Punktschätzer für \(\tau\), wenn der Bias stets \(0\) ist, also gilt: \(\forall \vartheta \in \Theta \QDp \Ew^\vartheta(T(X)) = \tau(\vartheta)\)
+}
+\subsubsubsection{Erwartungstreue Schätzer für EW und Varianz}{
+    Sei \(n \ge 2\) und seien \(\mu \QDp \Theta \longrightarrow \R\) und \(v \QDp \Theta \longrightarrow \R_{\ge 0}\) reele Kenngrößen, sodass \(\mu(\vartheta) = \Ew(\D^\vartheta)\) und \(v(\vartheta) = \Var(\D^\vartheta)\) für alle \(\vartheta \in \Theta\)\\
+    Dann sind mit \(\langle \cdot \rangle\QDp \R^n \longrightarrow \R, u \mapsto \frac{1}{n}\sum_{i=1}^{n}u_i\) die Funktionen \(\langle \cdot \rangle\) und \(s^2\QDp \R^n \longrightarrow \R_{\ge 0}, u \mapsto \frac{1}{n-1}\sum_{i=1}^{n}(u_i - \langle u \rangle)^2\) jeweils erwartungstreue Schätzer für \(\mu\) (also \(\langle \cdot \rangle\)) bzw. \(v\) (also \(s^2\)). \\
+    Sei \(u \in \R^n\) Stichprobe, dann nennen wir \(\langle u \rangle\) den empirischen Erwartungswert von \(u\) und \(s^2(u)\) die empirische Varianz von \(u\).
+}
+
 \end{document}

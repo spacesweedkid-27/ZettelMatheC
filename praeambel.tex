@@ -52,6 +52,7 @@
 \newcommand*{\Ew}{\mathbbm E}   % Expected value
 \newcommand*{\Var}{\text{Var}}  % Variance
 \newcommand*{\Cov}{\text{Cov}}  % Covariance of two random variables
+\newcommand*{\B}{\mathbbm B}    % Bias of a point estimation
 
 % MACROS %
 \newcommand{\subsubsubsection}[2]{\textsc{\underbar{#1}} \\#2\\\\}  % Macro for title in ALLCAPS, ends with two newlines
@@ -63,19 +64,20 @@
 \newcommand*{\gap}{\text{ }}    % Macro for a lazy aligment 2
 % for a funny ¯\_(ツ)_/¯-Emoji
 \newcommand{\shrug}[1][]{%
-\begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
-\def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
-\draw \arm;
-\draw[xscale=-1] \arm;
-\def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
-\draw \headpart;
-\draw[xscale=-1] \headpart;
-\def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
-\draw[shift={(-0.3,0.8)}] \eye;
-\draw[shift={(0,0.85)}] \eye;
-% draw mouth
-\draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
-\end{tikzpicture}}
+    \begin{tikzpicture}[baseline,x=0.8\ht\strutbox,y=0.8\ht\strutbox,line width=0.125ex,#1]
+    \def\arm{(-2.5,0.95) to (-2,0.95) (-1.9,1) to (-1.5,0) (-1.35,0) to (-0.8,0)};
+    \draw \arm;
+    \draw[xscale=-1] \arm;
+    \def\headpart{(0.6,0) arc[start angle=-40, end angle=40,x radius=0.6,y radius=0.8]};
+    \draw \headpart;
+    \draw[xscale=-1] \headpart;
+    \def\eye{(-0.075,0.15) .. controls (0.02,0) .. (0.075,-0.15)};
+    \draw[shift={(-0.3,0.8)}] \eye;
+    \draw[shift={(0,0.85)}] \eye;
+    % draw mouth
+    \draw (-0.1,0.2) to [out=15,in=-100] (0.4,0.95); 
+    \end{tikzpicture}
+}
 
 % BASIC CONFIGURATION %
 \pagestyle{plain}
